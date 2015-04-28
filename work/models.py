@@ -39,7 +39,7 @@ class BanquetReservation(models.Model):
     phone = models.CharField(max_length=32)
     email = models.EmailField(max_length=32)
 
-    # Stay Data
+    # Hall Data
     hall = models.ForeignKey('Hall')
     reservationDateTime = models.DateTimeField()
     numberOfPeople = models.IntegerField()
@@ -54,7 +54,7 @@ class RestaurantReservation(models.Model):
     phone = models.CharField(max_length=32)
     email = models.EmailField(max_length=32)
 
-    # Stay Data
+    # Restaurant Data
     reservationDateTime = models.DateTimeField()
     numberOfPeople = models.IntegerField()
     request = models.TextField()
