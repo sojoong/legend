@@ -5,7 +5,7 @@ class Room(models.Model):
     type = models.CharField(max_length=30) # for example, deluxe, double, single etc..
     price = models.IntegerField(max_length=30)
     space = models.IntegerField(max_length=10)
-    persons = models.IntegerField(max_length=10)
+    numberOfPeople = models.IntegerField(max_length=10)
     numberOfRoom = models.IntegerField(max_length=10)
 
 
@@ -42,7 +42,8 @@ class BanquetReservation(models.Model):
     # Hall Data
     hall = models.ForeignKey('Hall')
     reservationDateTime = models.DateTimeField()
-    numberOfPeople = models.IntegerField()
+    minimumNumberOfPeople = models.IntegerField(max_length=15)
+    maximumNumberOfPeople = models.IntegerField(max_length=15)
     request = models.TextField()
 
 
