@@ -12,7 +12,7 @@ from work.models import Comment
 
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('type', 'price', 'numberOfPeople')
 
 
 @admin.register(Hall)
