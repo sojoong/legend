@@ -61,13 +61,13 @@ class RestaurantReservation(models.Model):
 
 
 class Article(models.Model):
-    articleID = models.AutuField(primary_key=True)
+    articleID = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
     image = models.ImageField()
 
 
-class Content(models.Model):
+class Comment(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=32)
     content = models.TextField()
