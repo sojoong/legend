@@ -1,3 +1,4 @@
 Django==1.7.5
 gnureadline==6.3.3
 ipython==3.0.0
+MySQL-python==1.2.5
