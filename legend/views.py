@@ -18,6 +18,9 @@ def gallery(request):
 def news(request):
     return render(request, 'Sunshine/html/news.html')
 
+def write(request):
+    return render(request, 'Sunshine/html/news_write.html')
+
 def room_details(request):
     return render(request, 'Sunshine/html/room-details.html')
 

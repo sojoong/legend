@@ -13,4 +13,17 @@ class Reservation(models.Model):
     phoneNumber = models.CharField(max_length=32)
     numberOfPeople = models.IntegerField()
 
+class Article(models.Model):
+    articleID = models.AutuField(primary_key=True)
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    image = models.ImageField()
+
+class Content(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.emailField()
+    content = models.TextField()
+    article = models.ForeignKey('Article')
+
+
 # Create your models here.
