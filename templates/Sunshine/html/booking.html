@@ -83,84 +83,86 @@
 <!-- subheader close -->
 
 <!-- content begin -->
-<div id="content">
-  <div class="container">
-    <div class="row">
-      <div class="booking-form">
-        <div class="span9">
-          <div class="row">
-            <h3 class="title span9">Personal Data</h3>
-            <div class="span3">
-              <span class="text-label"><i class=" icon-user"></i>Name</span>
-              <input type="text">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-envelope-alt"></i>Email</span>
-              <input type="text">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-phone"></i>Phone</span>
-              <input type="text">
-            </div>
-            <h3 class="title span9">Your Stay</h3>
-            <div class="span6">
-              <span class="text-label"><i class="icon-group"></i>Guests</span>
-              <div class="row">
-                <div class="span3">
-                  <select>
-                    <option>Adults</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>5+</option>
-                  </select>
-                </div>
-                <div class="span3">
+<form method="post" action="{% url 'complete' %}">{% csrf_token %}
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="booking-form">
+          <div class="span9">
+            <div class="row">
+              <h3 class="title span9">Personal Data</h3>
+              <div class="span3">
+                <span class="text-label"><i class=" icon-user"></i>Name</span>
+                {{ reservation_form.name }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-envelope-alt"></i>Email</span>
+                {{ reservation_form.email }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-phone"></i>Phone</span>
+                {{ reservation_form.phone }}
+              </div>
+              <h3 class="title span9">Your Stay</h3>
+              <div class="span6">
+                <span class="text-label"><i class="icon-group"></i>Guests</span>
+                <div class="row">
+                  <div class="span3">
+                    <select>
+                      <option>Adults</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>5+</option>
+                    </select>
+                  </div>
+                  <div class="span3">
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-suitcase"></i>Room</span>
-              <select>
-                <option>Select Room</option>
-                <option>Deluxe Room - $199 / night</option>
-                <option>Elegant Room - $299 / night</option>
-                <option>luxury Room - $399 / night</option>
-              </select>
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-calendar"></i>Check In Date</span>
-              <input type="text" id="checkin">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-calendar"></i>Check Out Date</span>
-              <input type="text" id="checkout">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-money"></i>Payment</span>
-              <select>
-                <option>Select Payment</option>
-                <option>Cash</option>
-                <option>Credit Card</option>
-                <option>Bank Transfer</option>
-              </select>
-            </div>
-            <div class="span9">
-              <span class="text-label">요구사항</span>
-              <input type="text">
+              <div class="span3">
+                <span class="text-label"><i class="icon-suitcase"></i>Room</span>
+                <select>
+                  <option>Select Room</option>
+                  <option>Deluxe Room - $199 / night</option>
+                  <option>Elegant Room - $299 / night</option>
+                  <option>luxury Room - $399 / night</option>
+                </select>
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-calendar"></i>Check In Date</span>
+                <input type="text" id="checkin">
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-calendar"></i>Check Out Date</span>
+                <input type="text" id="checkout">
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-money"></i>Payment</span>
+                <select>
+                  <option>Select Payment</option>
+                  <option>Cash</option>
+                  <option>Credit Card</option>
+                  <option>Bank Transfer</option>
+                </select>
+              </div>
+              <div class="span9">
+                <span class="text-label">요구사항</span>
+                <input type="text">
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="span btn-book-submit">
-          <input type="button" class="btn btn-primary" value="Submit">
+          <div class="span btn-book-submit">
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 <!-- content close -->
 
 <!-- footer begin -->
