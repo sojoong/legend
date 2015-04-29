@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'legend.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'legend.views.index'),
     url(r'^index\.html','legend.views.index'),
@@ -19,4 +20,6 @@ urlpatterns = patterns('',
     url(r'^fullwidth\.html', 'legend.views.fullwidth'),
     url(r'^gallery\.html', 'legend.views.gallery'),
     url(r'^single-news\.html', 'legend.views.single_news'),
+
+    url(r'^booking/complete', 'legend.views.complete', name='complete'),
 )
