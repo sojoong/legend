@@ -14,7 +14,27 @@ def booking(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = RoomReservationForm(request.POST)
-        # check whether it's valid:
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            email = form.cleaned_data['email']
+            room = form.cleaned_data['room']
+            checkInDate = form.cleaned_data['checkInDate']
+            checkOutDate = form.cleaned_data['checkOutDate']
+            numberOfPeople = form.cleaned_data['numberOfPeople']
+            payment = form.cleaned_data['payment']
+            request = form.cleaned_data['request']
+
+            reservation = RoomReservation(name=name, phone=phone, email=email, room=room,
+                                          checkInDate=checkInDate, checkOutDate=checkOutDate,
+                                          numberOfPeople=numberOfPeople, payment=payment,
+                                          request=request)
+
+            reservation.save()
+
+            return render(request, "Sunshine/html/room-list.html", {'reservation_form' : form})
+
 
 
     # if a GET (or any other method) we'll create a blank form
