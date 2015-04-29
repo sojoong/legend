@@ -25,10 +25,10 @@
   <script src="../../../static/js/datepickr.js"></script>
   <script>
     jQuery(function() {
-      new datepickr('checkin');
+      new datepickr('checkInDate');
     });
     jQuery(function() {
-      new datepickr('checkout');
+      new datepickr('checkOutDate');
     });
   </script>
 </head>
@@ -108,15 +108,7 @@
                 <span class="text-label"><i class="icon-group"></i>Guests</span>
                 <div class="row">
                   <div class="span3">
-                    <select>
-                      <option>Adults</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>5+</option>
-                    </select>
+                    {{ reservation_form.numberOfPeople }}
                   </div>
                   <div class="span3">
                   </div>
@@ -124,29 +116,19 @@
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-suitcase"></i>Room</span>
-                <select>
-                  <option>Select Room</option>
-                  <option>Deluxe Room - $199 / night</option>
-                  <option>Elegant Room - $299 / night</option>
-                  <option>luxury Room - $399 / night</option>
-                </select>
+                {{ reservation_form.room }}
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-calendar"></i>Check In Date</span>
-                <input type="text" id="checkin">
+                {{ reservation_form.checkInDate }}
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-calendar"></i>Check Out Date</span>
-                <input type="text" id="checkout">
+                {{ reservation_form.checkOutDate }}
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-money"></i>Payment</span>
-                <select>
-                  <option>Select Payment</option>
-                  <option>Cash</option>
-                  <option>Credit Card</option>
-                  <option>Bank Transfer</option>
-                </select>
+                {{ reservation_form.payment }}
               </div>
               <div class="span9">
                 <span class="text-label">요구사항</span>
