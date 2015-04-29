@@ -19,7 +19,7 @@ def booking(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = RoomReservationForm()
+        form = RoomReservationForm(auto_id=True)
 
     return render(request, 'Sunshine/html/booking.html', {'reservation_form': form})
 
