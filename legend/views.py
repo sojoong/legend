@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from work.models import Article
+
 
 def index(request):
     return render(request, 'Sunshine/html/index.html')
@@ -16,10 +18,17 @@ def gallery(request):
     return render(request, 'Sunshine/html/gallery.html')
 
 def news(request):
-    return render(request, 'Sunshine/html/news.html')
+    articles = Article.objects.all()
+    return render(request, 'Sunshine/html/news.html', {'articles': articles})
 
 def write(request):
-    return render(request, 'Sunshine/html/news_write.html')
+     if request.method == 'POST':
+        title = request.POST["title"]
+        content = request.POST["content"]
+        article = Article(title=title, content=content)
+        article.save()
+        return redirect('news.html')
+     return render(request, 'Sunshine/html/news_write.html')
 
 def room_details(request):
     return render(request, 'Sunshine/html/room-details.html')
