@@ -25,10 +25,8 @@
   <script src="../../../static/js/datepickr.js"></script>
   <script>
     jQuery(function() {
-      new datepickr('checkin');
-    });
-    jQuery(function() {
-      new datepickr('checkout');
+      new datepickr('checkInDate', { 'dateFormat': 'y/m/d' });
+      new datepickr('checkOutDate', { 'dateFormat': 'y/m/d' });
     });
   </script>
 </head>
@@ -83,84 +81,94 @@
 <!-- subheader close -->
 
 <!-- content begin -->
-<div id="content">
-  <div class="container">
-    <div class="row">
-      <div class="booking-form">
-        <div class="span9">
-          <div class="row">
-            <h3 class="title span9">Personal Data</h3>
-            <div class="span3">
-              <span class="text-label"><i class=" icon-user"></i>Name</span>
-              <input type="text">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-envelope-alt"></i>Email</span>
-              <input type="text">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-phone"></i>Phone</span>
-              <input type="text">
-            </div>
-            <h3 class="title span9">Your Stay</h3>
-            <div class="span6">
-              <span class="text-label"><i class="icon-group"></i>Guests</span>
-              <div class="row">
-                <div class="span3">
-                  <select>
-                    <option>Adults</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>5+</option>
-                  </select>
+<form method="post" action="{% url 'booking' %}">{% csrf_token %}
+  {{ reservation_form.non_field_errors }}
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="booking-form">
+          <div class="span9">
+            <div class="row">
+              <h3 class="title span9">Personal Data</h3>
+              <div class="span3">
+                <span class="text-label"><i class=" icon-user"></i>Name</span>
+                <div class="control-group {% if reservation_form.name.errors %}warning{% endif %}">
+                  {{ reservation_form.name }}
                 </div>
-                <div class="span3">
+                {{ reservation_form.name.errors }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-envelope-alt"></i>Email</span>
+                <div class="control-group {% if reservation_form.email.errors %}warning{% endif %}">
+                  {{ reservation_form.email }}
+                </div>
+                {{ reservation_form.email.errors }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-phone"></i>Phone</span>
+                <div class="control-group {% if reservation_form.phone.errors %}warning{% endif %}">
+                  {{ reservation_form.phone }}
+                </div>
+                {{ reservation_form.phone.errors }}
+              </div>
+              <h3 class="title span9">Your Stay</h3>
+              <div class="span6">
+                <span class="text-label"><i class="icon-group"></i>Guests</span>
+                <div class="row">
+                  <div class="span3">
+                    <div class="control-group {% if reservation_form.numberOfPeople.errors %}warning{% endif %}">
+                      {{ reservation_form.numberOfPeople }}
+                    </div>
+                    {{ reservation_form.numberOfPeople.errors }}
+                  </div>
+                  <div class="span3">
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-suitcase"></i>Room</span>
-              <select>
-                <option>Select Room</option>
-                <option>Deluxe Room - $199 / night</option>
-                <option>Elegant Room - $299 / night</option>
-                <option>luxury Room - $399 / night</option>
-              </select>
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-calendar"></i>Check In Date</span>
-              <input type="text" id="checkin">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-calendar"></i>Check Out Date</span>
-              <input type="text" id="checkout">
-            </div>
-            <div class="span3">
-              <span class="text-label"><i class="icon-money"></i>Payment</span>
-              <select>
-                <option>Select Payment</option>
-                <option>Cash</option>
-                <option>Credit Card</option>
-                <option>Bank Transfer</option>
-              </select>
-            </div>
-            <div class="span9">
-              <span class="text-label">요구사항</span>
-              <input type="text">
+              <div class="span3">
+                <span class="text-label"><i class="icon-suitcase"></i>Room</span>
+                <div class="control-group {% if reservation_form.room.errors %}warning{% endif %}">
+                  {{ reservation_form.room }}
+                </div>
+                {{ reservation_form.room.errors }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-calendar"></i>Check In Date</span>
+                <div class="control-group {% if reservation_form.checkInDate.errors %}warning{% endif %}">
+                  {{ reservation_form.checkInDate }}
+                </div>
+                {{ reservation_form.checkInDate.errors }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-calendar"></i>Check Out Date</span>
+                <div class="control-group {% if reservation_form.checkOutDate.errors %}warning{% endif %}">
+                  {{ reservation_form.checkOutDate }}
+                </div>
+                {{ reservation_form.checkOutDate.errors }}
+              </div>
+              <div class="span3">
+                <span class="text-label"><i class="icon-money"></i>Payment</span>
+                <div class="control-group {% if reservation_form.payment.errors %}warning{% endif %}">
+                  {{ reservation_form.payment }}
+                </div>
+                {{ reservation_form.payment.errors }}
+              </div>
+              <div class="span9">
+                <span class="text-label">요구사항</span>
+                {{ reservation_form.request }}
+                {{ reservation_form.request.errors }}
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="span btn-book-submit">
-          <input type="button" class="btn btn-primary" value="Submit">
+          <div class="span btn-book-submit">
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 <!-- content close -->
 
 <!-- footer begin -->
