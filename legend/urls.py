@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^$', 'legend.views.index'),
     url(r'^index\.html','legend.views.index'),
     #url(r'^404\.html','legend.views.error')
-    url(r'^room-list\.html','legend.views.room_list'),
+    url(r'^room-list\.html','legend.views.room_list', name='room_list'),
     url(r'^room-details\.html','legend.views.room_details'),
     url(r'^news\.html', 'legend.views.news'),
     url(r'^write\.html', 'legend.views.write'),
