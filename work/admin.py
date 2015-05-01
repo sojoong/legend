@@ -22,7 +22,7 @@ class HallAdmin(admin.ModelAdmin):
 
 @admin.register(RoomReservation)
 class RoomReservationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'phone', 'email', 'room', 'checkInDate', 'checkOutDate', 'numberOfPeople', 'payment', 'request')
 
 
 @admin.register(BanquetReservation)
