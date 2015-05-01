@@ -1,0 +1,42 @@
+[
+{
+  "fields": {
+    "type": "스탠다드(온돌)",
+    "price": "169400",
+    "space": "11",
+    "numberOfPeople": "4",
+    "numberOfRoom": "14"
+  },
+  "model": "work.Room"
+},
+  {
+  "fields": {
+    "type": "스탠다드(더블)",
+    "price": "169400",
+    "space": "12",
+    "numberOfPeople": "2",
+    "numberOfRoom": "29"
+  },
+  "model": "work.Room"
+},
+  {
+  "fields": {
+    "type": "디럭스(패밀리온돌)",
+    "price": "193600",
+    "space": "13",
+    "numberOfPeople": "6",
+    "numberOfRoom": "8"
+  },
+  "model": "work.Room"
+},
+  {
+  "fields": {
+    "type": "스위트(양실)",
+    "price": "20",
+    "space": "484000",
+    "numberOfPeople": "2",
+    "numberOfRoom": "2"
+  },
+  "model": "work.Room"
+}
+]
