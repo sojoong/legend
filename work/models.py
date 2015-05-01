@@ -65,7 +65,8 @@ class Article(models.Model):
     articleID = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(null=True)
+    date = models.DateTimeField(editable=False, auto_now_add=True)
 
 
 class Comment(models.Model):
@@ -73,4 +74,5 @@ class Comment(models.Model):
     email = models.EmailField(max_length=32)
     content = models.TextField()
     article = models.ForeignKey('Article')
+    date = models.DateTimeField(editable=False, auto_now_add=True)
 
