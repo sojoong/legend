@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 # forms
 from work.forms import RoomReservationForm
 
 # models
 from work.models import RoomReservation
+from work.models import Room
 
 
 def index(request):
@@ -13,7 +15,7 @@ def index(request):
 def booking(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = RoomReservationForm(request.POST)
+        form = RoomReservationForm(request.POST, auto_id=True)
 
         if form.is_valid():
             name = form.cleaned_data['name']
@@ -26,14 +28,16 @@ def booking(request):
             payment = form.cleaned_data['payment']
             request = form.cleaned_data['request']
 
-            reservation = RoomReservation(name=name, phone=phone, email=email, room=room,
+            room_object = Room.objects.filter(type=room).first()
+
+            reservation = RoomReservation(name=name, phone=phone, email=email, room=room_object,
                                           checkInDate=checkInDate, checkOutDate=checkOutDate,
                                           numberOfPeople=numberOfPeople, payment=payment,
                                           request=request)
 
             reservation.save()
 
-            return render(request, "Sunshine/html/room-list.html", {'reservation_form' : form})
+            return redirect("room_list")
 
 
 
