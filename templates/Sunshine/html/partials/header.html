@@ -1,0 +1,41 @@
+<div id="logo">
+        <div class="inner">
+            <a href="{% url "index" %}"><img src="../../../static/img/logo.png" alt=""></a>
+        </div>
+    </div>
+
+
+    <!-- mainmenu begin -->
+    <div id="mainmenu-container">
+        <ul id="mainmenu">
+            <li><a href="{% url "index" %}">메인</a></li>
+            <li><a href="#">객실</a>
+                <ul>
+                    <li><a href="{% url "room-list" %}">객실 목록</a>
+                    <li><a href="{% url "room-detail" %}">객실 상세설명</a>
+                </ul>
+            </li>
+            <li><a href="#">연회</a>
+                <ul>
+                    <li><a href="{% url "room-list" %}">연회 목록</a>
+                    <li><a href="{% url "room-detail" %}">연회 상세설명</a>
+                </ul>
+            </li>
+            <li><a href="#">웨딩</a>
+                <ul>
+                    <li><a href="{% url "room-list" %}">웨딩 목록</a>
+                    <li><a href="{% url "room-detail" %}">웨딩 상세설명</a>
+                </ul>
+            </li>
+            <li><a href="{% url "booking" %}">예약</a></li>
+            <li><a href="#">공지사항</a>
+                <ul>
+                    <li><a href="{% url "news" %}">공지사항 목록</a></li>
+                    <li><a href="{% url "single-news" %}">개별 공지사항</a></li>
+                </ul>
+            </li>
+            <!-- <li><a href="fullwidth.html">Fullwidth</a></li> -->
+            <li><a href="{% url "gallery" %}">갤러리</a></li>
+            <li><a href="{% url "contact" %}">오시는 길</a></li>
+        </ul>
+    </div>
