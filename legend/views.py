@@ -106,7 +106,3 @@ def complete(request):
 
     return render(request, "Sunshine/html/single-news.html", {'reservation_form' : form})
 
-
-
-def write(request):
-    return render(request, 'Sunshine/html/news_write.html')
