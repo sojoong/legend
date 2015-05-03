@@ -1,289 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Sunshine - Responsive Hotel Template</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>Sunshine - Responsive Hotel Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- LOAD CSS FILES -->
-  <link href="../../../static/css/main.css" rel="stylesheet" type="text/css">
+    <!-- LOAD CSS FILES -->
+    <link href="../../../static/css/main.css" rel="stylesheet" type="text/css">
 
-  <!-- LOAD JS FILES -->
-  <script src="../../../static/js/jquery.min.js"></script>
-  <script src="../../../static/js/bootstrap.min.js"></script>
-  <script src="../../../static/js/jquery.isotope.min.js"></script>
-  <script src="../../../static/js/jquery.prettyPhoto.js"></script>
-  <script src="../../../static/js/easing.js"></script>
-  <script src="../../../static/js/jquery.lazyload.js"></script>
-  <script src="../../../static/js/jquery.ui.totop.js"></script>
-  <script src="../../../static/js/selectnav.js"></script>
-  <script src="../../../static/js/ender.js"></script>
-  <script src="../../../static/js/custom.js"></script>
-  <script src="../../../static/js/responsiveslides.min.js"></script>
+    <!-- LOAD JS FILES -->
+    <script src="../../../static/js/jquery.min.js"></script>
+    <script src="../../../static/js/bootstrap.min.js"></script>
+    <script src="../../../static/js/jquery.isotope.min.js"></script>
+    <script src="../../../static/js/jquery.prettyPhoto.js"></script>
+    <script src="../../../static/js/easing.js"></script>
+    <script src="../../../static/js/jquery.lazyload.js"></script>
+    <script src="../../../static/js/jquery.ui.totop.js"></script>
+    <script src="../../../static/js/selectnav.js"></script>
+    <script src="../../../static/js/ender.js"></script>
+    <script src="../../../static/js/custom.js"></script>
+    <script src="../../../static/js/responsiveslides.min.js"></script>
 
 </head>
 
 <body>
 <!-- header begin -->
 <header>
-  <div id="logo">
-    <div class="inner">
-      <a href="index.html"><img src="../../../static/img/logo.png" alt=""></a>
-    </div>
-  </div>
-
-
-  <!-- mainmenu begin -->
-  <div id="mainmenu-container">
-    <ul id="mainmenu">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="#">ROOM</a>
-        <ul>
-          <li><a href="/room-list.html">Room List</a>
-          <li><a href="/room-details.html">Room Details</a>
-        </ul>
-      </li>
-      <li><a href="/booking.html">Booking</a></li>
-      <li><a href="#">News</a>
-        <ul>
-          <li><a href="/news.html">News List</a></li>
-          <li><a href="/single-news.html">Single News</a></li>
-        </ul>
-      </li>
-      <li><a href="/fullwidth.html">Fullwidth</a></li>
-      <li><a href="/gallery.html">Gallery</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </div>
+   {% include "Sunshine/html/partials/header.html" %}
 
 </header>
 <!-- header close -->
 
 <!-- subheader begin -->
 <div id="subheader">
-  <div class="container">
-    <div class="row">
-      <div class="span12">
-        <h1>Elegant Room</h1>
-        <span>Feel more than home.</span>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h1>Elegant Room</h1>
+                <span>Feel more than home.</span>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <!-- subheader close -->
 
 <!-- content begin -->
 <div id="content">
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <ul class="blog-list">
-          {% for article in articles %}
-            <div class="info">
-              <div class="date">
-                <h4> 29 </h4>
-                <span>SEP</span> </div>
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <ul class="blog-list">
+                    <li>
+                        <div class="info">
+                            <div class="date">
+                                <h4>20</h4>
+                                <span>SEP</span> </div>
+                        </div>
+                        <div class="preview">  <img src="pic-blank-1.gif" data-original="img/pic-blog-1.jpg" alt=""/> <a href="#">
+                            <h3 class="blog-title">Sunshine Hotel and Resorts</h3>
+                        </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur </div>
+                        <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
+                    </li>
+
+                    <li>
+                        <div class="info">
+                            <div class="date">
+                                <h4>20</h4>
+                                <span>SEP</span> </div>
+                        </div>
+                        <div class="preview">  <img src="pic-blank-1.gif" data-original="img/pic-blog-2.jpg" alt=""/> <a href="#">
+                            <h3 class="blog-title">Sunshine Hotel and Resorts</h3>
+                        </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur </div>
+                        <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
+                    </li>
+
+                    <li>
+                        <div class="info">
+                            <div class="date">
+                                <h4>20</h4>
+                                <span>SEP</span> </div>
+                        </div>
+                        <div class="preview">  <img src="pic-blank-1.gif" data-original="img/pic-blog-3.jpg" alt=""/> <a href="#">
+                            <h3 class="blog-title">Sunshine Hotel and Resorts</h3>
+                        </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur </div>
+                        <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
+                    </li>
+
+                </ul>
+
+                <div class="pagination text-center ">
+                    <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="write.html"> 글 작성 </a></li>
+                    </ul>
+
+
+                </div>
             </div>
-            <div class="preview">  <img src="pic-blank-1.gif" data-original="img/pic-blog-1.jpg" alt=""/> <a href="#">
-              <h3 class="blog-title">{{ article.title }}</h3>
-            </a>{{ article.content }}</div>
-            <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
-          {% endfor %}
-        </ul>
 
-        <div class="pagination text-center ">
-          <ul>
-            <li><a href="#">Prev</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">Next</a></li>
-          </ul>
-          <ul>
-            <li><a href="write.html"> 글 작성 </a></li>
-          </ul>
+            <div id="sidebar" class="span4">
 
+                <div class="widget latest_news">
+                    <h4 class="title">Latest News</h4>
+                    <ul class="list-news">
+                        <li>
+                            <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
+                            <div class="text"><h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
+                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
+                        </li>
+                        <li> <img src="../../../static/img/thumbnail-2.jpg" alt="" class="img-polaroid">
+                            <div class="text">
+                                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
+                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
+                        </li></ul>
+                    <ul class="list-news">
+                        <li> <img src="../../../static/img/thumbnail-3.jpg" alt="" class="img-polaroid">
+                            <div class="text">
+                                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
+                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
+                        </li>
+                    </ul>
+                </div>
 
-        </div>
-      </div>
+                <!-- widget category -->
+                <div class="widget widget_category">
+                    <h4 class="title"><span>Category</span></h4>
+                    <ul>
+                        <li><a href="#"><i class="icon-folder-close-alt"></i>Recommendation</a></li>
+                        <li><a href="#"><i class="icon-folder-close-alt"></i>Hotel and Resorts</a></li>
+                        <li><a href="#"><i class="icon-folder-close-alt"></i>Restaurant</a></li>
+                        <li><a href="#"><i class="icon-folder-close-alt"></i>Event</a></li>
+                        <li><a href="#"><i class="icon-folder-close-alt"></i>Promotion</a></li>
+                    </ul>
+                </div>
 
-      <div id="sidebar" class="span4">
+                <!-- widget tags -->
+                <div class="widget widget_tags">
+                    <h4 class="title"><span>Tags</span></h4>
+                    <ul>
+                        <li><a href="#link">hotel</a></li>
+                        <li><a href="#link">responsive</a></li>
+                        <li><a href="#link">html5</a></li>
+                        <li><a href="#link">css3</a></li>
+                        <li><a href="#link">event</a></li>
+                        <li><a href="#link">promotion</a></li>
+                        <li><a href="#link">cozy</a></li>
+                        <li><a href="#link">elegant</a></li>
+                        <li><a href="#link">holiday</a></li>
+                        <li><a href="#link">discount</a></li>
+                    </ul>
+                </div>
 
-        <div class="widget latest_news">
-          <h4 class="title">Latest News</h4>
-          <ul class="list-news">
-            <li>
-              <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
-              <div class="text"><h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-            </li>
-            <li> <img src="../../../static/img/thumbnail-2.jpg" alt="" class="img-polaroid">
-              <div class="text">
-                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-            </li></ul>
-          <ul class="list-news">
-            <li> <img src="../../../static/img/thumbnail-3.jpg" alt="" class="img-polaroid">
-              <div class="text">
-                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-            </li>
-          </ul>
-        </div>
+                <!-- widget text -->
+                <div class="widget widget-text">
+                    <h4 class="title"><span>Text Widget</span></h4>
+                    <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </div>
+                </div>
 
-        <!-- widget category -->
-        <div class="widget widget_category">
-          <h4 class="title"><span>Category</span></h4>
-          <ul>
-            <li><a href="#"><i class="icon-folder-close-alt"></i>Recommendation</a></li>
-            <li><a href="#"><i class="icon-folder-close-alt"></i>Hotel and Resorts</a></li>
-            <li><a href="#"><i class="icon-folder-close-alt"></i>Restaurant</a></li>
-            <li><a href="#"><i class="icon-folder-close-alt"></i>Event</a></li>
-            <li><a href="#"><i class="icon-folder-close-alt"></i>Promotion</a></li>
-          </ul>
-        </div>
-
-        <!-- widget tags -->
-        <div class="widget widget_tags">
-          <h4 class="title"><span>Tags</span></h4>
-          <ul>
-            <li><a href="#link">hotel</a></li>
-            <li><a href="#link">responsive</a></li>
-            <li><a href="#link">html5</a></li>
-            <li><a href="#link">css3</a></li>
-            <li><a href="#link">event</a></li>
-            <li><a href="#link">promotion</a></li>
-            <li><a href="#link">cozy</a></li>
-            <li><a href="#link">elegant</a></li>
-            <li><a href="#link">holiday</a></li>
-            <li><a href="#link">discount</a></li>
-          </ul>
+            </div>
         </div>
 
-        <!-- widget text -->
-        <div class="widget widget-text">
-          <h4 class="title"><span>Text Widget</span></h4>
-          <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </div>
+        <div class="map">
+
         </div>
-
-      </div>
-    </div>
-
-    <div class="map">
 
     </div>
-
-  </div>
 </div>
 <!-- content close -->
 
 <!-- footer begin -->
 <footer>
-  <div class="container">
-    <div class="row">
-      <div class="span3">
-        <img src="../../../static/img/logo-2.png" alt="">
-      </div>
-      <div class="span3">
-        <h3>About Us</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div class="span3">
-        <h3>Latest News</h3>
-        <ul class="list-news">
-          <li>
-            <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
-            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-          </li>
-          <li>
-            <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
-            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-          </li>
-        </ul>
-      </div>
-      <div class="span3">
-        <h3>Our Address</h3>
-        <address>
-          80 Gotham Street, Sydney
-          <span><strong>Phone:</strong>(208) 222 4546</span>
-          <span><strong>Fax:</strong>(208) 222 4647</span>
-          <span><strong>Email:</strong><a href="mailto:contact@example.com">contact@example.com</a></span>
-          <span><strong>Web:</strong><a href="#test">http://example.com</a></span>
-        </address>
-
-        <div class="social-icons">
-          <a href="#"><img src="../../../static/img/social-icons/rss.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/facebook.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/twitter.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/gplus.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/youtube.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/vimeo.png" alt=""/></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="subfooter">
     <div class="container">
-      <div class="row">
-        <div class="span6">
-          &copy; Copyiright 2013 - Sunshine by Aveothemes
+        <div class="row">
+            <div class="span3">
+                <img src="../../../static/img/logo-2.png" alt="">
+            </div>
+            <div class="span3">
+                <h3>About Us</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <div class="span3">
+                <h3>Latest News</h3>
+                <ul class="list-news">
+                    <li>
+                        <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
+                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
+                    </li>
+                    <li>
+                        <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
+                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="span3">
+                <h3>Our Address</h3>
+                <address>
+                    80 Gotham Street, Sydney
+                    <span><strong>Phone:</strong>(208) 222 4546</span>
+                    <span><strong>Fax:</strong>(208) 222 4647</span>
+                    <span><strong>Email:</strong><a href="mailto:contact@example.com">contact@example.com</a></span>
+                    <span><strong>Web:</strong><a href="#test">http://example.com</a></span>
+                </address>
+
+                <div class="social-icons">
+                    <a href="#"><img src="../../../static/img/social-icons/rss.png" alt=""/></a>
+                    <a href="#"><img src="../../../static/img/social-icons/facebook.png" alt=""/></a>
+                    <a href="#"><img src="../../../static/img/social-icons/twitter.png" alt=""/></a>
+                    <a href="#"><img src="../../../static/img/social-icons/gplus.png" alt=""/></a>
+                    <a href="#"><img src="../../../static/img/social-icons/youtube.png" alt=""/></a>
+                    <a href="#"><img src="../../../static/img/social-icons/vimeo.png" alt=""/></a>
+                </div>
+            </div>
         </div>
-        <div class="span6">
-          <nav>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Room</a></li>
-              <li><a href="#">Booking</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <div class="subfooter">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    &copy; Copyiright 2013 - Sunshine by Aveothemes
+                </div>
+                <div class="span6">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Room</a></li>
+                            <li><a href="#">Booking</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </footer>
 <!-- footer close -->
-<script>
-  $(document).ready(function(){
-    $.each($('ul#article-list li'), function (i, li) {
 
-      var $li = $(li);
-      var reservationID = $li.attr('data-reservation-id');
-      var b = $(document.createElement('input')).attr('type', 'password');
-
-      var a = $(document.createElement('button')).click(function(e){
-        $.ajax({
-          'method' : 'get',
-          'dataType': 'text',
-          'url' : '/modify/',
-          'data' : {
-            'reservationID' : reservationID,
-            'password': b.val()
-          },
-          'success' : function(res){
-            //console.log("success!!" + reservationID);
-            alert(res);
-            location.reload();
-          },
-          'error': function(jqxhr){
-            console.log("wtf!!" + reservationID);
-          }
-        });
-      }).text("예약 취소");
-      $li.append(b);
-      $li.append(a);
-    })
-  });
-
-</script>
 </body>
 </html>
 
