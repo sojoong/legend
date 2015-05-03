@@ -38,7 +38,7 @@ def booking(request):
 
             reservation.save()
 
-            return redirect("room_list")
+            return redirect("room-list")
 
 
 
