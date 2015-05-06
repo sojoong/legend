@@ -43,8 +43,8 @@
   <div class="container">
     <div class="row">
       <div class="span12">
-        <h1>Booking</h1>
-        <span>This is custom slogan for each page.</span>
+        <h1>객실 예약</h1>
+        <span>Accommodation Reservation</span>
       </div>
     </div>
   </div>
@@ -60,31 +60,31 @@
         <div class="booking-form">
           <div class="span9">
             <div class="row">
-              <h3 class="title span9">Personal Data</h3>
+              <h3 class="title span9">개인정보</h3>
               <div class="span3">
-                <span class="text-label"><i class=" icon-user"></i>Name</span>
+                <span class="text-label"><i class=" icon-user"></i>예약자명</span>
                 <div class="control-group {% if reservation_form.name.errors %}warning{% endif %}">
                   {{ reservation_form.name }}
                 </div>
                 {{ reservation_form.name.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-envelope-alt"></i>Email</span>
+                <span class="text-label"><i class="icon-envelope-alt"></i>이메일주소</span>
                 <div class="control-group {% if reservation_form.email.errors %}warning{% endif %}">
                   {{ reservation_form.email }}
                 </div>
                 {{ reservation_form.email.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-phone"></i>Phone</span>
+                <span class="text-label"><i class="icon-phone"></i>휴대폰번호</span>
                 <div class="control-group {% if reservation_form.phone.errors %}warning{% endif %}">
                   {{ reservation_form.phone }}
                 </div>
                 {{ reservation_form.phone.errors }}
               </div>
-              <h3 class="title span9">Your Stay</h3>
+              <h3 class="title span9">객실정보</h3>
               <div class="span6">
-                <span class="text-label"><i class="icon-group"></i>Guests</span>
+                <span class="text-label"><i class="icon-group"></i>투숙인원</span>
                 <div class="row">
                   <div class="span3">
                     <div class="control-group {% if reservation_form.numberOfPeople.errors %}warning{% endif %}">
@@ -97,35 +97,35 @@
                 </div>
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-suitcase"></i>Room</span>
+                <span class="text-label"><i class="icon-suitcase"></i>객실</span>
                 <div class="control-group {% if reservation_form.room.errors %}warning{% endif %}">
                   {{ reservation_form.room }}
                 </div>
                 {{ reservation_form.room.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-calendar"></i>Check In Date</span>
+                <span class="text-label"><i class="icon-calendar"></i>체크인날짜</span>
                 <div class="control-group {% if reservation_form.checkInDate.errors %}warning{% endif %}">
                   {{ reservation_form.checkInDate }}
                 </div>
                 {{ reservation_form.checkInDate.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-calendar"></i>Check Out Date</span>
+                <span class="text-label"><i class="icon-calendar"></i>체크아웃날짜</span>
                 <div class="control-group {% if reservation_form.checkOutDate.errors %}warning{% endif %}">
                   {{ reservation_form.checkOutDate }}
                 </div>
                 {{ reservation_form.checkOutDate.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-money"></i>Payment</span>
+                <span class="text-label"><i class="icon-money"></i>결제방식</span>
                 <div class="control-group {% if reservation_form.payment.errors %}warning{% endif %}">
                   {{ reservation_form.payment }}
                 </div>
                 {{ reservation_form.payment.errors }}
               </div>
               <div class="span9">
-                <span class="text-label">요구사항</span>
+                <span class="text-label">요구사항(선택)</span>
                 {{ reservation_form.request }}
                 {{ reservation_form.request.errors }}
               </div>
@@ -133,7 +133,7 @@
           </div>
 
           <div class="span btn-book-submit">
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" class="btn btn-primary" value="예약">
           </div>
         </div>
       </div>
