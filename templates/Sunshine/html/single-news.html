@@ -59,11 +59,12 @@
                                 <span>SEP</span> </div>
                         </div>
                         <div class="preview">
-                            <img src="pic-blank-1.gif" data-original="img/pic-blog-1.jpg" alt="">
                             <a href="#">
                                 <h3 class="blog-title">{{ article.title }}</h3>
                             </a>
-                            {{ article.content }} </div>
+                            {{ article.content }}
+                            <img src="../../../static/notice-data/{{ article.articleID }}_{{ article.image }}"/>
+                          </div>
                         <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
                     </div>
                 </div>

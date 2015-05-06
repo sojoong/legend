@@ -56,10 +56,11 @@
             {% for article in articles %}
               <div class="info">
                 <div class="date">
-                  <h4>  </h4>
-                  <span> {{ article.date }} </span> </div>
+                  <h4>20</h4>
+                  <span>SEP</span>
+                  </div>
               </div>
-              <div class="preview" >  <img src="pic-blank-1.gif" data-original="img/pic-blog-1.jpg" alt=""/><a href="/single-news?articleID={{ article.articleID }}">
+              <div class="preview" >  <a href="/single-news?articleID={{ article.articleID }}">
                 <h3 class="blog-title" >{{ article.title }}</h3>
               </a>{{ article.content }}</div>
               <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
@@ -78,7 +79,7 @@
             <li><a href="#">Next</a></li>
           </ul>
           <ul>
-            <li><a href="write.html"> 글 작성 </a></li>
+            <li><a href="/write/"> 글 작성 </a></li>
           </ul>
 
 

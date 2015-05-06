@@ -50,7 +50,7 @@
   <div class="container">
     <div class="row">
       <div class="span8">
-        <form method="post" action="/write/">
+        <form method="post" action="/write/" enctype="multipart/form-data">
           {% csrf_token %}
           <label>title</label>
           <input type="text" name="title" id="title" style="width: 555px; height: 30px;"/>
@@ -59,7 +59,10 @@
           <div id="error_message" class="error">Please check your message</div>
           <div id="mail_success" class="success"> Thank you. Your message has been sent.</div>
           <div id="mail_failed" class="error">Error, email not sent</div>
-
+          <input type="file"
+                 name="file"
+                 id="id_file"
+                 value="이미지 선택"/>
           <p id="btnsubmit"><input type="submit" id="send" value="Send" class="btn btn-large"/></p>
         </form>
       </div>
