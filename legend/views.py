@@ -67,7 +67,7 @@ def write(request):
         content = request.POST["content"]
         article = Article(title=title, content=content)
         article.save()
-        return redirect('news.html')
+        return redirect('/news/')
      return render(request, 'Sunshine/html/news_write.html')
 
 def room_details(request):
