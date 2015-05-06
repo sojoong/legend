@@ -1,6 +1,6 @@
 # forms
 from work.forms import RoomReservationForm
-
+from legend.settings import DATA_DIR
 # models
 from work.models import RoomReservation
 from work.models import Room
@@ -62,13 +62,24 @@ def news(request):
     return render(request, 'Sunshine/html/news.html', {'articles': articles})
 
 def write(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
         title = request.POST["title"]
         content = request.POST["content"]
+
         article = Article(title=title, content=content)
         article.save()
+
+        if 'file' in request.FILES:
+            file = request.FILES['file']
+            filename = file._name
+            fp = open('%s/%s_%s' % (DATA_DIR,article.articleID,filename) , 'wb')
+            for chunk in file.chunks():
+                fp.write(chunk)
+            article.image=filename
+            article.save()
+            fp.close()
         return redirect('/news/')
-     return render(request, 'Sunshine/html/news_write.html')
+    return render(request, 'Sunshine/html/news_write.html')
 
 def room_details(request):
     return render(request, 'Sunshine/html/room-details.html')
