@@ -49,6 +49,12 @@ def booking(request):
     return render(request, 'Sunshine/html/booking.html', {'reservation_form': form})
 
 
+def banquet_reservation(request):
+    return render(request, 'Sunshine/html/banquet-reservation.html')
+
+def restaurant_reservation(request):
+    return render(request, 'Sunshine/html/restaurant-reservation.html')
+
 def contact(request):
     return render(request, 'Sunshine/html/contact.html')
 
