@@ -8,10 +8,14 @@ class Room(models.Model):
     numberOfPeople = models.IntegerField(max_length=10)
     numberOfRoom = models.IntegerField(max_length=10)
 
+    def __str__(self):
+        return '%s' % self.type
+
 
 class Hall(models.Model):
     type = models.CharField(max_length=30)
-    persons = models.IntegerField(max_length=10)
+    minimumNumberOfPeople = models.IntegerField(max_length=15)
+    maximumNumberOfPeople = models.IntegerField(max_length=15)
 
 
 class RoomReservation(models.Model):
@@ -23,12 +27,12 @@ class RoomReservation(models.Model):
     email = models.EmailField(max_length=32)
 
     # Stay Data
-    room = models.ForeignKey('Room')
+    room = models.ForeignKey('Room', verbose_name="Room")
     checkInDate = models.DateField()
     checkOutDate = models.DateField()
     numberOfPeople = models.IntegerField()
     payment = models.CharField(max_length=30)
-    request = models.TextField()
+    request = models.TextField(blank=True, null=True)
 
 
 class BanquetReservation(models.Model):
@@ -40,10 +44,10 @@ class BanquetReservation(models.Model):
     email = models.EmailField(max_length=32)
 
     # Hall Data
-    hall = models.ForeignKey('Hall')
-    reservationDateTime = models.DateTimeField()
-    minimumNumberOfPeople = models.IntegerField(max_length=15)
-    maximumNumberOfPeople = models.IntegerField(max_length=15)
+    hall = models.ForeignKey('Hall', verbose_name="Hall")
+    reservationDate = models.DateField()
+    reservationTime = models.CharField(max_length=30)
+    numberOfPeople = models.IntegerField()
     request = models.TextField()
 
 
@@ -56,7 +60,8 @@ class RestaurantReservation(models.Model):
     email = models.EmailField(max_length=32)
 
     # Restaurant Data
-    reservationDateTime = models.DateTimeField()
+    reservationDate = models.DateField()
+    reservationTime = models.CharField(max_length=30)
     numberOfPeople = models.IntegerField()
     request = models.TextField()
 
