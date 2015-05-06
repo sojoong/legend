@@ -59,11 +59,12 @@
                                 <span>SEP</span> </div>
                         </div>
                         <div class="preview">
-                            <img src="pic-blank-1.gif" data-original="img/pic-blog-1.jpg" alt="">
                             <a href="#">
-                                <h3 class="blog-title">Sunshine Hotel and Resorts</h3>
+                                <h3 class="blog-title">{{ article.title }}</h3>
                             </a>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur </div>
+                            {{ article.content }}
+                            <img src="../../../static/notice-data/{{ article.articleID }}_{{ article.image }}"/>
+                          </div>
                         <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
                     </div>
                 </div>

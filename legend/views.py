@@ -2,6 +2,8 @@
 from work.forms import RoomReservationForm
 from work.forms import BanquetReservationForm
 
+from legend.settings import DATA_DIR
+
 # models
 from work.models import RoomReservation
 from work.models import BanquetReservation
@@ -106,13 +108,24 @@ def news(request):
     return render(request, 'Sunshine/html/news.html', {'articles': articles})
 
 def write(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
         title = request.POST["title"]
         content = request.POST["content"]
+
         article = Article(title=title, content=content)
         article.save()
-        return redirect('news.html')
-     return render(request, 'Sunshine/html/news_write.html')
+
+        if 'file' in request.FILES:
+            file = request.FILES['file']
+            filename = file._name
+            fp = open('%s/%s_%s' % (DATA_DIR,article.articleID,filename) , 'wb')
+            for chunk in file.chunks():
+                fp.write(chunk)
+            article.image=filename
+            article.save()
+            fp.close()
+        return redirect('/news/')
+    return render(request, 'Sunshine/html/news_write.html')
 
 def room_details(request):
     return render(request, 'Sunshine/html/room-details.html')
@@ -120,11 +133,41 @@ def room_details(request):
 def room_list(request):
     return render(request, 'Sunshine/html/room-list.html')
 
-def single_news(request):
-    return render(request, 'Sunshine/html/single-news.html')
-
 def room_reservation_ok(request):
     return render(request, 'Sunshine/html/room-reservation-ok.html')
 
-def write(request):
-    return render(request, 'Sunshine/html/news_write.html')
+def single_news(request):
+    if request.method == 'GET':
+        articleID = request.GET.get("articleID",None)
+        if articleID != None:
+            article = Article.objects.filter(articleID=articleID).first()
+            return render(request, 'Sunshine/html/single-news.html', {'article':article})
+    return render(request, 'Sunshine/html/404.html')
+
+
+def complete(request):
+    if request.method == "POST":
+        form = RoomReservationForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            email = form.cleaned_data['email']
+            room = form.cleaned_data['room']
+            checkInDate = form.cleaned_data['checkInDate']
+            checkOutDate = form.cleaned_data['checkOutDate']
+            numberOfPeople = form.cleaned_data['numberOfPeople']
+            payment = form.cleaned_data['payment']
+            request = form.cleaned_data['request']
+
+            reservation = RoomReservation(name=name, phone=phone, email=email, room=room,
+                                          checkInDate=checkInDate, checkOutDate=checkOutDate,
+                                          numberOfPeople=numberOfPeople, payment=payment,
+                                          request=request)
+
+            reservation.save()
+
+            return render(request, "Sunshine/html/room-list.html", {'reservation_form' : form})
+
+    return render(request, "Sunshine/html/single-news.html", {'reservation_form' : form})
+
