@@ -21,5 +21,5 @@ urlpatterns = patterns('',
     url(r'^gallery', 'legend.views.gallery', name='gallery'),
     url(r'^single-news', 'legend.views.single_news', name='single-news'),
 
-    url(r'^booking/complete', 'legend.views.complete', name='complete'),
+    url(r'^room-reservation-ok', 'legend.views.room_reservation_ok', name='room-reservation-ok'),
 )

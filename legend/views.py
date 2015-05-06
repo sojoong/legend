@@ -5,7 +5,7 @@ from work.forms import RoomReservationForm
 from work.models import RoomReservation
 from work.models import Room
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from work.models import Article
 
 
@@ -38,7 +38,7 @@ def booking(request):
 
             reservation.save()
 
-            return redirect("room-list")
+            return render_to_response('Sunshine/html/room-reservation-ok.html', {'reservation': reservation})
 
 
 
@@ -80,33 +80,8 @@ def room_list(request):
 def single_news(request):
     return render(request, 'Sunshine/html/single-news.html')
 
-def complete(request):
-    if request.method == "POST":
-        form = RoomReservationForm(request.POST)
-
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            phone = form.cleaned_data['phone']
-            email = form.cleaned_data['email']
-            room = form.cleaned_data['room']
-            checkInDate = form.cleaned_data['checkInDate']
-            checkOutDate = form.cleaned_data['checkOutDate']
-            numberOfPeople = form.cleaned_data['numberOfPeople']
-            payment = form.cleaned_data['payment']
-            request = form.cleaned_data['request']
-
-            reservation = RoomReservation(name=name, phone=phone, email=email, room=room,
-                                          checkInDate=checkInDate, checkOutDate=checkOutDate,
-                                          numberOfPeople=numberOfPeople, payment=payment,
-                                          request=request)
-
-            reservation.save()
-
-            return render(request, "Sunshine/html/room-list.html", {'reservation_form' : form})
-
-    return render(request, "Sunshine/html/single-news.html", {'reservation_form' : form})
-
-
+def room_reservation_ok(request):
+    return render(request, 'Sunshine/html/room-reservation-ok.html')
 
 def write(request):
     return render(request, 'Sunshine/html/news_write.html')
