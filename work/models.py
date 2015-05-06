@@ -31,7 +31,7 @@ class RoomReservation(models.Model):
     checkOutDate = models.DateField()
     numberOfPeople = models.IntegerField()
     payment = models.CharField(max_length=30)
-    request = models.TextField()
+    request = models.TextField(blank=True, null=True)
 
 
 class BanquetReservation(models.Model):
