@@ -26,7 +26,7 @@ class RoomReservation(models.Model):
     email = models.EmailField(max_length=32)
 
     # Stay Data
-    room = models.ForeignKey('Room')
+    room = models.ForeignKey('Room', verbose_name="Room")
     checkInDate = models.DateField()
     checkOutDate = models.DateField()
     numberOfPeople = models.IntegerField()
