@@ -8,6 +8,9 @@ class Room(models.Model):
     numberOfPeople = models.IntegerField(max_length=10)
     numberOfRoom = models.IntegerField(max_length=10)
 
+    def __str__(self):
+        return '%s' % self.type
+
 
 class Hall(models.Model):
     type = models.CharField(max_length=30)
