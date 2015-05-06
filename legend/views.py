@@ -4,7 +4,6 @@ from work.forms import RoomReservationForm
 # models
 from work.models import RoomReservation
 from work.models import Room
-
 from django.shortcuts import render, redirect
 from work.models import Article
 
@@ -78,8 +77,12 @@ def room_list(request):
     return render(request, 'Sunshine/html/room-list.html')
 
 def single_news(request):
-    return render(request, 'Sunshine/html/single-news.html')
-
+    if request.method == 'GET':
+        articleID = request.GET.get("articleID",None)
+        if articleID != None:
+            article = Article.objects.filter(articleID=articleID).first()
+            return render(request, 'Sunshine/html/single-news.html', {'article':article})
+    return render(request, 'Sunshine/html/404.html')
 def complete(request):
     if request.method == "POST":
         form = RoomReservationForm(request.POST)
