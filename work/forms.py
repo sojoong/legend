@@ -31,7 +31,8 @@ class RoomReservationForm(forms.Form):
 
     # Personal Data
     name = forms.CharField(max_length=30, error_messages={'required': '이름을 입력해주세요'})
-    phone = forms.CharField(max_length=32, help_text='"-"없이 입력해주세요', error_messages={'required': '연락 가능한 번호를 입력해주세요'})
+    phone = forms.CharField(max_length=32, help_text='"-"없이 입력해주세요', error_messages={'required': '연락 가능한 번호를 입력해주세요'},
+                            widget=forms.TextInput(attrs={'placeholder': ' \'-\' 없이 입력해주세요'}))
     email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'})
 
     # Stay Data
@@ -42,14 +43,4 @@ class RoomReservationForm(forms.Form):
                                   input_formats=('%y/%m/%d',))
     numberOfPeople = forms.ChoiceField(widget=forms.Select, choices=GUESTS, error_messages={'required': '이용 인원 수를 선택해주세요'})
     payment = forms.ChoiceField(widget=forms.Select, choices=PAYMENT, error_messages={'required': '결제수단을 선택해주세요'})
-    request = forms.CharField(max_length=255, error_messages={'required': '기타 요구사항을 입력해주세요'})
-
-    def clean(self):
-        cleaned_data = super(RoomReservationForm, self).clean()
-        name = cleaned_data.get("name")
-        phone = cleaned_data.get("phone")
-        email = cleaned_data.get("email")
-
-        # if name is None or phone is None or email is None:
-        #     msg = "error"
-        #     self.add_error('name', msg)
+    request = forms.CharField(max_length=255, error_messages={'required': '기타 요구사항을 입력해주세요'}, required=False)
