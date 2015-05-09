@@ -33,8 +33,8 @@ class RoomReservationForm(forms.Form):
     # Personal Data
     name = forms.CharField(max_length=30, error_messages={'required': '이름을 입력해주세요'})
     phone = forms.CharField(max_length=32, help_text='"-"없이 입력해주세요', error_messages={'required': '연락 가능한 번호를 입력해주세요'},
-                            widget=forms.TextInput(attrs={'placeholder': ' ex) 010-1234-5678'}))
-    email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'})
+                            widget=forms.TextInput(attrs={'placeholder': ' ex) 010-1234-5678'}), required=False)
+    email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'}, required=False)
 
     # Stay Data
     room = forms.ChoiceField(widget=forms.Select, choices=ROOMS, error_messages={'required': '객실 타입을 선택해주세요'})
@@ -51,6 +51,9 @@ class RoomReservationForm(forms.Form):
         numberOfPeople = cleaned_data.get("numberOfPeople")
         payment = cleaned_data.get("payment")
         room = cleaned_data.get("room")
+        phone = cleaned_data.get("phone")
+        email = cleaned_data.get("email")
+
 
         if numberOfPeople == '-1':
             msg = "투숙인원을 선택해주세요"
@@ -63,6 +66,11 @@ class RoomReservationForm(forms.Form):
         if room == '-1':
             msg = "객실 종류를 선택해주세요"
             self.add_error('room', msg)
+
+        if phone == '' and email == '':
+            msg = "연락처를 입력해주세요"
+            self.add_error('phone', msg)
+            self.add_error('email', msg)
 
 
 class BanquetReservationForm(forms.Form):
@@ -77,8 +85,8 @@ class BanquetReservationForm(forms.Form):
     # Personal Data
     name = forms.CharField(max_length=30, error_messages={'required': '이름을 입력해주세요'})
     phone = forms.CharField(max_length=32, help_text='"-"없이 입력해주세요', error_messages={'required': '연락 가능한 번호를 입력해주세요'},
-                            widget=forms.TextInput(attrs={'placeholder': ' ex) 010-1234-5678'}))
-    email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'})
+                            widget=forms.TextInput(attrs={'placeholder': ' ex) 010-1234-5678'}), required=False)
+    email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'}, required=False)
 
     # Hall Data
     hall = forms.ChoiceField(widget=forms.Select, choices=HALLS, error_messages={'required': '연회장 종류를 선택해주세요'})
@@ -92,10 +100,17 @@ class BanquetReservationForm(forms.Form):
     def clean(self):
         cleaned_data = super(BanquetReservationForm, self).clean()
         hall = cleaned_data.get("hall")
+        phone = cleaned_data.get("phone")
+        email = cleaned_data.get("email")
 
         if hall == '-1':
             msg = "연회장 종류를 선택해주세요"
             self.add_error('hall', msg)
+
+        if phone == '' and email == '':
+            msg = "연락처를 입력해주세요"
+            self.add_error('phone', msg)
+            self.add_error('email', msg)
 
 
 class RestaurantReservationForm(forms.Form):
@@ -107,8 +122,8 @@ class RestaurantReservationForm(forms.Form):
     # Personal Data
     name = forms.CharField(max_length=30, error_messages={'required': '이름을 입력해주세요'})
     phone = forms.CharField(max_length=32, help_text='"-"없이 입력해주세요', error_messages={'required': '연락 가능한 번호를 입력해주세요'},
-                            widget=forms.TextInput(attrs={'placeholder': ' ex) 010-1234-5678'}))
-    email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'})
+                            widget=forms.TextInput(attrs={'placeholder': ' ex) 010-1234-5678'}), required=False)
+    email = forms.EmailField(widget=forms.EmailInput, max_length=32, error_messages={'required': '이메일을 입력해주세요'}, required=False)
 
     # Restaurant Data
     reservationDate = forms.DateField(widget=forms.DateInput(format = '%y/%m/%d'), error_messages={'required': '체크인 시간을 선택해주세요'},
@@ -117,3 +132,13 @@ class RestaurantReservationForm(forms.Form):
                             widget=forms.TextInput(attrs={'placeholder': ' ex) 오후 4시 30분 or 16시 30분'}))
     numberOfPeople = forms.IntegerField(error_messages={'required': '인원을 입력해주세요'})
     request = forms.CharField(max_length=255, error_messages={'required': '기타 요구사항을 입력해주세요'}, required=False)
+
+    def clean(self):
+        cleaned_data = super(RestaurantReservationForm, self).clean()
+        phone = cleaned_data.get("phone")
+        email = cleaned_data.get("email")
+
+        if phone == '' and email == '':
+            msg = "연락처를 입력해주세요"
+            self.add_error('phone', msg)
+            self.add_error('email', msg)
