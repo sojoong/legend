@@ -66,24 +66,15 @@
               <h3 class="title span9">개인정보</h3>
               <div class="span3">
                 <span class="text-label"><i class=" icon-user"></i>예약자명</span>
-                <div class="control-group {% if reservation_form.name.errors %}warning{% endif %}">
-                  {{ reservation_form.name }}
-                </div>
-                {{ reservation_form.name.errors }}
+                  <div class="well">{{ reservation_form.name }}</div>
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-envelope-alt"></i>이메일주소</span>
-                <div class="control-group {% if reservation_form.email.errors %}warning{% endif %}">
-                  {{ reservation_form.email }}
-                </div>
-                {{ reservation_form.email.errors }}
+                  <div class="well">{{ reservation_form.email }}</div>
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-phone"></i>휴대폰번호</span>
-                <div class="control-group {% if reservation_form.phone.errors %}warning{% endif %}">
-                  {{ reservation_form.phone }}
-                </div>
-                {{ reservation_form.phone.errors }}
+                  <div class="well">{{ reservation_form.phone }}</div>
               </div>
             </div>
           </div>
@@ -95,20 +86,14 @@
               <h3 class="title span9">연회장정보</h3>
               <div class="span3">
                 <span class="text-label"><i class="icon-group"></i>연회장인원</span>
-                <div class="control-group {% if reservation_form.numberOfPeople.errors %}warning{% endif %}">
-                  {{ reservation_form.numberOfPeople }}
-                </div>
-                {{ reservation_form.numberOfPeople.errors }}
+                  <div class="well">{{ reservation_form.numberOfPeople }}</div>
               </div>
 
 
 
               <div class="span3">
                 <span class="text-label"><i class="icon-suitcase"></i>연회장</span>
-                <div class="control-group {% if reservation_form.hall.errors %}warning{% endif %}">
-                  {{ reservation_form.hall }}
-                </div>
-                {{ reservation_form.hall.errors }}
+                  <div class="well">{{ reservation_form.hall }}</div>
               </div>
 
             </div>
@@ -118,24 +103,17 @@
             <div class="row">
               <div class="span3">
                 <span class="text-label"><i class="icon-calendar"></i>예약날짜</span>
-                <div class="control-group {% if reservation_form.reservationDate.errors %}warning{% endif %}">
-                  {{ reservation_form.reservationDate }}
-                </div>
-                {{ reservation_form.reservationDate.errors }}
+                  <div class="well">{{ reservation_form.reservationDate }}</div>
               </div>
               <div class="span3">
                 <span class="text-label"><i class="icon-calendar"></i>예약시간</span>
-                <div class="control-group {% if reservation_form.reservationTime.errors %}warning{% endif %}">
-                  {{ reservation_form.reservationTime }}
-                </div>
-                {{ reservation_form.reservationTime.errors }}
+                  <div class="well">{{ reservation_form.reservationTime }}</div>
               </div>
             </div></div>
           <div class="span9">
 
             <span class="text-label">요구사항(선택)</span>
-            {{ reservation_form.request }}
-            {{ reservation_form.request.errors }}
+            <div class="well">{{ reservation_form.request }}</div>
 
           </div>
 
