@@ -100,7 +100,7 @@ class BanquetReservationForm(forms.Form):
 
 class RestaurantReservationForm(forms.Form):
     class Meta:
-            model = RestaurantReservation
+        model = RestaurantReservation
 
     error_css_class = "error"
 

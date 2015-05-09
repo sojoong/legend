@@ -1,12 +1,14 @@
 # forms
 from work.forms import RoomReservationForm
 from work.forms import BanquetReservationForm
+from work.forms import RestaurantReservationForm
 
 from legend.settings import DATA_DIR
 
 # models
 from work.models import RoomReservation
 from work.models import BanquetReservation
+from work.models import RestaurantReservation
 from work.models import Room
 from work.models import Hall
 
@@ -21,7 +23,6 @@ def index(request):
 
 def booking(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = RoomReservationForm(request.POST, auto_id=True)
 
         if form.is_valid():
@@ -49,7 +50,6 @@ def booking(request):
         return render(request, 'Sunshine/html/booking.html', {'reservation_form': form,
                                                               'validation': 1})
 
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = RoomReservationForm(auto_id=True)
 
@@ -58,7 +58,6 @@ def booking(request):
 
 def banquet_reservation(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = BanquetReservationForm(request.POST, auto_id=True)
 
         if form.is_valid():
@@ -79,20 +78,44 @@ def banquet_reservation(request):
 
             reservation.save()
 
-            return render_to_response('Sunshine/html/banquet-reservation-ok.html', {'reservation': reservation})
+            return render_to_response('Sunshine/html/banquet-reservation-ok.html', {'reservation_form': reservation})
 
         return render(request, 'Sunshine/html/banquet-reservation.html', {'reservation_form': form,
                                                                           'validation': 1})
 
-
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = BanquetReservationForm(auto_id=True)
 
     return render(request, 'Sunshine/html/banquet-reservation.html', {'reservation_form': form})
 
 def restaurant_reservation(request):
-    return render(request, 'Sunshine/html/restaurant-reservation.html')
+    if request.method == 'POST':
+        form = RestaurantReservationForm(request.POST, auto_id=True)
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            email = form.cleaned_data['email']
+            reservationDate = form.cleaned_data['reservationDate']
+            reservationTime = form.cleaned_data['reservationTime']
+            numberOfPeople = form.cleaned_data['numberOfPeople']
+            request = form.cleaned_data['request']
+
+            reservation = RestaurantReservation(name=name, phone=phone, email=email,
+                                             reservationDate=reservationDate, reservationTime=reservationTime,
+                                             numberOfPeople=numberOfPeople, request=request)
+
+            reservation.save()
+
+            return render_to_response('Sunshine/html/restaurant-reservation-ok.html', {'reservation_form': reservation})
+
+        return render(request, 'Sunshine/html/restaurant-reservation.html', {'reservation_form': form,
+                                                                          'validation': 1})
+
+    else:
+        form = RestaurantReservationForm(auto_id=True)
+
+    return render(request, 'Sunshine/html/restaurant-reservation.html', {'reservation_form': form})
 
 def contact(request):
     return render(request, 'Sunshine/html/contact.html')
