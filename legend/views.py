@@ -19,7 +19,9 @@ from work.models import Article
 
 
 def index(request):
-    return render(request, 'Sunshine/html/index.html')
+    rooms = Room.objects.all()
+
+    return render(request, 'Sunshine/html/index.html', {'rooms': rooms})
 
 def booking(request):
     if request.method == 'POST':
@@ -51,7 +53,10 @@ def booking(request):
                                                               'validation': 1})
 
     else:
-        form = RoomReservationForm(auto_id=True)
+        form = RoomReservationForm(auto_id=True, initial={'checkInDate': request.GET['checkInDate'],
+                                                          'checkOutDate': request.GET['checkOutDate'],
+                                                          'numberOfPeople': request.GET['numberOfPeople'],
+                                                          'room': request.GET['room']})
 
     return render(request, 'Sunshine/html/booking.html', {'reservation_form': form})
 
