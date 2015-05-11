@@ -16,8 +16,6 @@ from work.models import Hall
 from django.shortcuts import render, redirect, render_to_response
 from work.models import Article
 
-
-
 def index(request):
     rooms = Room.objects.all()
 
@@ -53,10 +51,14 @@ def booking(request):
                                                               'validation': 1})
 
     else:
-        form = RoomReservationForm(auto_id=True, initial={'checkInDate': request.GET['checkInDate'],
-                                                          'checkOutDate': request.GET['checkOutDate'],
-                                                          'numberOfPeople': request.GET['numberOfPeople'],
-                                                          'room': request.GET['room']})
+        initial = {}
+        parameters = ['checkInDate', 'checkOutDate', 'numberOfPeople', 'room']
+
+        for parameter in parameters:
+            if parameter in request.GET:
+                initial[parameter] = request.GET[parameter]
+
+        form = RoomReservationForm(auto_id=True, initial=initial)
 
     return render(request, 'Sunshine/html/booking.html', {'reservation_form': form})
 
@@ -132,8 +134,22 @@ def gallery(request):
     return render(request, 'Sunshine/html/gallery.html')
 
 def news(request):
-    articles = Article.objects.all()
-    return render(request, 'Sunshine/html/news.html', {'articles': articles})
+    articles = Article.objects.order_by('date').reverse()
+    if request.method == 'GET':
+        page = int(request.GET.get("page",1))
+        if page < 1:
+            page = 1
+        max_page = len(list(articles)) / 6 + 1
+        cur_page_articles = []
+        count=0
+        for article in articles:
+            count+=1
+            if(count>page*6):
+                break
+            if(count>6*(page-1)):
+                cur_page_articles.append(article)
+        return render(request, 'Sunshine/html/news.html', {'articles': cur_page_articles,'page_no': page,'max_page':max_page})
+    return render(request, 'Sunshine/html/404.html')
 
 def write(request):
     if request.method == 'POST':
@@ -171,31 +187,3 @@ def single_news(request):
             article = Article.objects.filter(articleID=articleID).first()
             return render(request, 'Sunshine/html/single-news.html', {'article':article})
     return render(request, 'Sunshine/html/404.html')
-
-
-def complete(request):
-    if request.method == "POST":
-        form = RoomReservationForm(request.POST)
-
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            phone = form.cleaned_data['phone']
-            email = form.cleaned_data['email']
-            room = form.cleaned_data['room']
-            checkInDate = form.cleaned_data['checkInDate']
-            checkOutDate = form.cleaned_data['checkOutDate']
-            numberOfPeople = form.cleaned_data['numberOfPeople']
-            payment = form.cleaned_data['payment']
-            request = form.cleaned_data['request']
-
-            reservation = RoomReservation(name=name, phone=phone, email=email, room=room,
-                                          checkInDate=checkInDate, checkOutDate=checkOutDate,
-                                          numberOfPeople=numberOfPeople, payment=payment,
-                                          request=request)
-
-            reservation.save()
-
-            return render(request, "Sunshine/html/room-list.html", {'reservation_form' : form})
-
-    return render(request, "Sunshine/html/single-news.html", {'reservation_form' : form})
-
