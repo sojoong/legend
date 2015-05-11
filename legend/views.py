@@ -58,8 +58,22 @@ def gallery(request):
     return render(request, 'Sunshine/html/gallery.html')
 
 def news(request):
-    articles = Article.objects.all()
-    return render(request, 'Sunshine/html/news.html', {'articles': articles})
+    articles = Article.objects.order_by('date').reverse()
+    if request.method == 'GET':
+        page = int(request.GET.get("page",1))
+        if page < 1:
+            page = 1
+        max_page = len(list(articles)) / 6 + 1
+        cur_page_articles = []
+        count=0
+        for article in articles:
+            count+=1
+            if(count>page*6):
+                break
+            if(count>6*(page-1)):
+                cur_page_articles.append(article)
+        return render(request, 'Sunshine/html/news.html', {'articles': cur_page_articles,'page_no': page,'max_page':max_page})
+    return render(request, 'Sunshine/html/404.html')
 
 def write(request):
     if request.method == 'POST':
@@ -94,6 +108,7 @@ def single_news(request):
             article = Article.objects.filter(articleID=articleID).first()
             return render(request, 'Sunshine/html/single-news.html', {'article':article})
     return render(request, 'Sunshine/html/404.html')
+
 def complete(request):
     if request.method == "POST":
         form = RoomReservationForm(request.POST)
