@@ -27,12 +27,12 @@ class RoomReservationAdmin(admin.ModelAdmin):
 
 @admin.register(BanquetReservation)
 class BanquetReservationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'phone', 'email', 'hall', 'reservationDate', 'reservationTime', 'numberOfPeople', 'request')
 
 
 @admin.register(RestaurantReservation)
 class RestaurantReservationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'phone', 'email', 'reservationDate', 'reservationTime', 'numberOfPeople', 'request')
 
 
 @admin.register(Article)

@@ -25,8 +25,7 @@
   <script src="../../../static/js/datepickr.js"></script>
   <script>
     jQuery(function() {
-      new datepickr('checkInDate', { 'dateFormat': 'y/m/d' });
-      new datepickr('checkOutDate', { 'dateFormat': 'y/m/d' });
+      new datepickr('reservationDate', { 'dateFormat': 'y/m/d' });
     });
   </script>
 </head>
@@ -43,8 +42,8 @@
   <div class="container">
     <div class="row">
       <div class="span12">
-        <h1>객실 예약</h1>
-        <span>Accommodation Reservation</span>
+        <h1>레스토랑 예약</h1>
+        <span>Restaurant Reservation</span>
       </div>
     </div>
   </div>
@@ -52,92 +51,94 @@
 <!-- subheader close -->
 
 <!-- content begin -->
-<form method="post" action="{% url 'booking' %}">{% csrf_token %}
-  {{ reservation_form.non_field_errors }}
+<form method="post" action="{% url 'restaurant-reservation' %}">{% csrf_token %}
   <div id="content">
     <div class="container">
       <div class="row">
         <div class="booking-form">
+
+
           <div class="span9">
+            {% if not reservation_form.is_valid%}
+              {% if validation == 1 %}
+                <div class="alert alert-error">
+                  <strong>비어있는 폼이 있습니다! </strong> 빨간색으로 표시된 폼을 채워주세요
+                </div>
+              {% endif %}
+            {% endif %}
             <div class="row">
-              <h3 class="title span9">개인정보</h3>
+              <h3 class="title span9">개인정보<span class="pull-right"><h6>* 이메일과 휴대폰번호 둘 중 하나는 필수입니다.</h6></span></h3>
               <div class="span3">
-                <span class="text-label"><i class=" icon-user"></i>예약자명</span>
                 <div class="control-group {% if reservation_form.name.errors %}warning{% endif %}">
+                  <span class="text-label"><i class=" icon-user"></i>예약자명</span>
                   {{ reservation_form.name }}
                 </div>
-                {{ reservation_form.name.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-envelope-alt"></i>이메일주소</span>
                 <div class="control-group {% if reservation_form.email.errors %}warning{% endif %}">
+                  <span class="text-label"><i class="icon-envelope-alt"></i>이메일주소</span>
                   {{ reservation_form.email }}
                 </div>
-                {{ reservation_form.email.errors }}
               </div>
               <div class="span3">
-                <span class="text-label"><i class="icon-phone"></i>휴대폰번호</span>
                 <div class="control-group {% if reservation_form.phone.errors %}warning{% endif %}">
+                  <span class="text-label"><i class="icon-phone"></i>휴대폰번호</span>
                   {{ reservation_form.phone }}
                 </div>
-                {{ reservation_form.phone.errors }}
               </div>
-              <h3 class="title span9">객실정보</h3>
-              <div class="span6">
-                <span class="text-label"><i class="icon-group"></i>연회인원</span>
+
+
+
+              <h3 class="title span9">레스토랑정보</h3>
+
+              <div class="span9">
+
                 <div class="row">
                   <div class="span3">
                     <div class="control-group {% if reservation_form.numberOfPeople.errors %}warning{% endif %}">
+                      <span class="text-label"><i class="icon-group"></i>레스토랑인원</span>
                       {{ reservation_form.numberOfPeople }}
                     </div>
-                    {{ reservation_form.numberOfPeople.errors }}
                   </div>
                   <div class="span3">
+                    <div class="control-group {% if reservation_form.reservationDate.errors %}warning{% endif %}">
+                      <span class="text-label"><i class="icon-calendar"></i>예약날짜</span>
+                      {{ reservation_form.reservationDate }}
+                    </div>
                   </div>
+                  <div class="span3">
+                    <div class="control-group {% if reservation_form.reservationTime.errors %}warning{% endif %}">
+                      <span class="text-label"><i class="icon-calendar"></i>예약시간</span>
+                      {{ reservation_form.reservationTime }}
+                    </div>
+                  </div>
+
                 </div>
               </div>
-              <div class="span3">
-                <span class="text-label"><i class="icon-suitcase"></i>객실</span>
-                <div class="control-group {% if reservation_form.room.errors %}warning{% endif %}">
-                  {{ reservation_form.room }}
-                </div>
-                {{ reservation_form.room.errors }}
-              </div>
-              <div class="span3">
-                <span class="text-label"><i class="icon-calendar"></i>체크인날짜</span>
-                <div class="control-group {% if reservation_form.checkInDate.errors %}warning{% endif %}">
-                  {{ reservation_form.checkInDate }}
-                </div>
-                {{ reservation_form.checkInDate.errors }}
-              </div>
-              <div class="span3">
-                <span class="text-label"><i class="icon-calendar"></i>체크아웃날짜</span>
-                <div class="control-group {% if reservation_form.checkOutDate.errors %}warning{% endif %}">
-                  {{ reservation_form.checkOutDate }}
-                </div>
-                {{ reservation_form.checkOutDate.errors }}
-              </div>
-              <div class="span3">
-                <span class="text-label"><i class="icon-money"></i>결제방식</span>
-                <div class="control-group {% if reservation_form.payment.errors %}warning{% endif %}">
-                  {{ reservation_form.payment }}
-                </div>
-                {{ reservation_form.payment.errors }}
-              </div>
+
+
               <div class="span9">
                 <span class="text-label">요구사항(선택)</span>
                 {{ reservation_form.request }}
-                {{ reservation_form.request.errors }}
               </div>
-            </div>
-          </div>
 
+            </div>
+
+          </div>
           <div class="span btn-book-submit">
             <input type="submit" class="btn btn-primary" value="예약">
           </div>
         </div>
+
       </div>
+
+
+
+
+
     </div>
+
+  </div>
   </div>
 </form>
 <!-- content close -->

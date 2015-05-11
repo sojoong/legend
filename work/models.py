@@ -17,6 +17,9 @@ class Hall(models.Model):
     minimumNumberOfPeople = models.IntegerField(max_length=15)
     maximumNumberOfPeople = models.IntegerField(max_length=15)
 
+    def __str__(self):
+        return '%s' % self.type
+
 
 class RoomReservation(models.Model):
     reserveID = models.AutoField(primary_key=True)

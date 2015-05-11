@@ -26,4 +26,5 @@ urlpatterns = patterns('',
     url(r'^single-news', 'legend.views.single_news', name='single-news'),
 
     url(r'^room-reservation-ok', 'legend.views.room_reservation_ok', name='room-reservation-ok'),
+
 )
