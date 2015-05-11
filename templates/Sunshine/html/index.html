@@ -25,10 +25,10 @@
   <script src="../../../static/js/datepickr.js"></script>
   <script>
     jQuery(function() {
-      new datepickr('checkin');
+      new datepickr('checkin', { 'dateFormat': 'y/m/d' });
     });
     jQuery(function() {
-      new datepickr('checkout');
+      new datepickr('checkout', { 'dateFormat': 'y/m/d' });
     });
   </script>
 </head>
@@ -68,34 +68,34 @@
   <div class="container">
     <div class="row">
       <span class="span2">Booking Now:</span>
-      <form class="form-inline">
+      <form class="form-inline" method="get" action="{% url 'booking' %}">
         <div class="span2">
-          <input type="text" id="checkin" value="Check In Date">
+          <input type="text" id="checkin" name="checkInDate" value="체크인 날짜">
         </div>
         <div class="span2">
-          <input type="text" id="checkout" value="Check Out Date">
+          <input type="text" id="checkout" name="checkOutDate" value="체크아웃 날짜">
         </div>
         <div class="span2">
-          <select>
-            <option>Select Room</option>
-            <option>Deluxe Room </option>
-            <option>Elegant Room</option>
-            <option>luxury Room</option>
+          <select name="room">
+            <option>객실 종류 선택</option>
+            {% for room in rooms %}
+            <option value="{{ room.type }}">{{ room.type }}</option>
+            {% endfor %}
           </select>
         </div>
         <div class="span2">
-          <select>
-            <option>Number of Guests</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>5+</option>
+          <select name="numberOfPeople">
+            <option value="-1">인원 수 선택</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">5+</option>
           </select>
         </div>
         <div class="span2">
-          <a href="#" class="btn btn-pimary btn-submit">Submit</a>
+          <input type="submit" class="btn btn-primary btn-submit" value="빠른예약하기">
         </div>
       </form>
     </div>

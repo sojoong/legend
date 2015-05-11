@@ -1,0 +1,42 @@
+[
+{
+  "fields": {
+    "type": "그랜드볼룸",
+    "minimumNumberOfPeople": "350",
+    "maximumNumberOfPeople": "600"
+  },
+  "model": "work.Hall"
+},
+  {
+  "fields": {
+    "type": "금강",
+    "minimumNumberOfPeople": "80",
+    "maximumNumberOfPeople": "350"
+  },
+  "model": "work.Hall"
+},
+  {
+  "fields": {
+    "type": "휘에스타",
+    "minimumNumberOfPeople": "80",
+    "maximumNumberOfPeople": "300"
+  },
+  "model": "work.Hall"
+},
+  {
+  "fields": {
+    "type": "다이아몬드",
+    "minimumNumberOfPeople": "80",
+    "maximumNumberOfPeople": "150"
+  },
+  "model": "work.Hall"
+},
+  {
+  "fields": {
+    "type": "사파이어",
+    "minimumNumberOfPeople": "80",
+    "maximumNumberOfPeople": "100"
+  },
+  "model": "work.Hall"
+}
+]
