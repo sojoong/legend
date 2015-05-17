@@ -142,13 +142,17 @@ def news(request):
         max_page = len(list(articles)) / 6 + 1
         cur_page_articles = []
         count=0
+        last_news = []
         for article in articles:
             count+=1
+            if(count < 4):
+                last_news.append(article)
             if(count>page*6):
                 break
             if(count>6*(page-1)):
                 cur_page_articles.append(article)
-        return render(request, 'Sunshine/html/news.html', {'articles': cur_page_articles,'page_no': page,'max_page':max_page})
+        return render(request, 'Sunshine/html/news.html',
+                      {'articles': cur_page_articles,'page_no': page,'max_page':max_page,'last_news':last_news})
     return render(request, 'Sunshine/html/404.html')
 
 def write(request):
