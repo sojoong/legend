@@ -32,8 +32,8 @@
   {
   "fields": {
     "type": "스위트(양실)",
-    "price": "20",
-    "space": "484000",
+    "price": "484000",
+    "space": "20",
     "numberOfPeople": "2",
     "numberOfRoom": "2"
   },
