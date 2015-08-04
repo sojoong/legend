@@ -45,7 +45,15 @@
       -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
+    #main_div {
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
   </style>
+
+
+  }
 </header>
 <!-- header close -->
 
@@ -76,7 +84,7 @@
                   <span>{{ article.date|date:'F' }}</span>
                 </div>
               </div>
-              <div class="preview" >  <a href="/single-news?articleID={{ article.articleID }}">
+              <div id="main_div" class="preview" >  <a href="/single-news?articleID={{ article.articleID }}">
                 <h3 class="blog-title" >{{ article.title }}</h3>
               </a>{{ article.content }}</div>
               <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a></div>
@@ -96,19 +104,19 @@
       <div id="sidebar" class="span4">
 
         <div class="widget latest_news">
-          <h4 class="title">Latest News</h4>
+          <h4 class="title">최근 소식</h4>
           <ul class="list-news">
             {% for article in last_news %}
               {% if article.image %}
                 <li>
                   <img src="../../../static/notice-data/{{ article.articleID }}_{{ article.image }}" alt="" class="my-thumb-1">
-                  <div class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
+                  <div id="main_div" class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
                     {{ article.content }}</div>
                 </li>
               {% else %}
                 <li>
                   <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
-                  <div class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
+                  <div id="main_div" class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
                     {{ article.content }}</div>
                 </li>
               {% endif %}
@@ -118,7 +126,7 @@
 
         <!-- widget category -->
         <div class="widget widget_category">
-          <h4 class="title"><span>Category</span></h4>
+          <h4 class="title"><span>카테고리</span></h4>
           <ul>
             <li><a href="#"><i class="icon-folder-close-alt"></i>Recommendation</a></li>
             <li><a href="#"><i class="icon-folder-close-alt"></i>Hotel and Resorts</a></li>

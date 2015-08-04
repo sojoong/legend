@@ -75,7 +75,7 @@ class Article(models.Model):
     content = models.TextField()
     image = models.ImageField(null=True)
     date = models.DateTimeField(editable=False, auto_now_add=True)
-
+    #category = models.ListField()
 
 class Comment(models.Model):
     name = models.CharField(max_length=30)

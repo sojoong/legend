@@ -11,6 +11,7 @@ from work.models import BanquetReservation
 from work.models import RestaurantReservation
 from work.models import Room
 from work.models import Hall
+from django.templatetags.static import static
 
 
 from django.shortcuts import render, redirect, render_to_response
@@ -179,6 +180,7 @@ def room_details(request):
     return render(request, 'Sunshine/html/room-details.html')
 
 def room_list(request):
+
     return render(request, 'Sunshine/html/room-list.html')
 
 def room_reservation_ok(request):
@@ -186,6 +188,8 @@ def room_reservation_ok(request):
 
 def single_news(request):
     if request.method == 'GET':
+        url = static('notice-data/test.m3u8')
+        print url
         articleID = request.GET.get("articleID",None)
         if articleID != None:
             article = Article.objects.filter(articleID=articleID).first()
