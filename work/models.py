@@ -3,10 +3,10 @@ from django.db import models
 
 class Room(models.Model):
     type = models.CharField(max_length=30) # for example, deluxe, double, single etc..
-    price = models.IntegerField(max_length=30)
-    space = models.IntegerField(max_length=10)
-    numberOfPeople = models.IntegerField(max_length=10)
-    numberOfRoom = models.IntegerField(max_length=10)
+    price = models.IntegerField()
+    space = models.IntegerField()
+    numberOfPeople = models.IntegerField()
+    numberOfRoom = models.IntegerField()
 
     def __str__(self):
         return '%s' % self.type
@@ -14,8 +14,8 @@ class Room(models.Model):
 
 class Hall(models.Model):
     type = models.CharField(max_length=30)
-    minimumNumberOfPeople = models.IntegerField(max_length=15)
-    maximumNumberOfPeople = models.IntegerField(max_length=15)
+    minimumNumberOfPeople = models.IntegerField()
+    maximumNumberOfPeople = models.IntegerField()
 
     def __str__(self):
         return '%s' % self.type
@@ -75,7 +75,7 @@ class Article(models.Model):
     content = models.TextField()
     image = models.ImageField(null=True)
     date = models.DateTimeField(editable=False, auto_now_add=True)
-
+    #category = models.ListField()
 
 class Comment(models.Model):
     name = models.CharField(max_length=30)

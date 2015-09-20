@@ -9,6 +9,7 @@
 
   <!-- LOAD CSS FILES -->
   <link href="../../../static/css/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../../static/css/jquery.nailthumb.1.1.min.css">
 
   <!-- LOAD JS FILES -->
   <script src="../../../static/js/jquery.min.js"></script>
@@ -22,6 +23,8 @@
   <script src="../../../static/js/ender.js"></script>
   <script src="../../../static/js/custom.js"></script>
   <script src="../../../static/js/responsiveslides.min.js"></script>
+  <script src="../../../static/js/datepickr.js"></script>
+  <script src="../../../static/js/jquery.nailthumb.1.1.min.js"></script>
 
 </head>
 
@@ -30,6 +33,27 @@
 <header>
   {% include "Sunshine/html/partials/header.html" %}
 
+  <style>
+    .my-thumb-1 {
+      width: 44px;
+      height: 44px;
+      padding: 4px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    #main_div {
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+  </style>
+
+
+  }
 </header>
 <!-- header close -->
 
@@ -58,12 +82,12 @@
                 <div class="date">
                   <h4>{{ article.date|date:'d' }}</h4>
                   <span>{{ article.date|date:'F' }}</span>
-                  </div>
+                </div>
               </div>
-              <div class="preview" >  <a href="/single-news?articleID={{ article.articleID }}">
+              <div id="main_div" class="preview" >  <a href="/single-news?articleID={{ article.articleID }}">
                 <h3 class="blog-title" >{{ article.title }}</h3>
               </a>{{ article.content }}</div>
-              <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a><span>|</span><a href="#">2 Comments</a><span>|</span> </div>
+              <div class="meta-info"> By: <a href="#">Admin</a><span>|</span><a href="#">Event</a>, <a href="#">Promotion</a></div>
             {% endfor %}
           </ul>
         </ul>
@@ -74,38 +98,35 @@
           <ul>
             <li><a href="/write/"> 글 작성 </a></li>
           </ul>
-
-
         </div>
       </div>
 
       <div id="sidebar" class="span4">
 
         <div class="widget latest_news">
-          <h4 class="title">Latest News</h4>
+          <h4 class="title">최근 소식</h4>
           <ul class="list-news">
-            <li>
-              <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
-              <div class="text"><h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-            </li>
-            <li> <img src="../../../static/img/thumbnail-2.jpg" alt="" class="img-polaroid">
-              <div class="text">
-                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-            </li></ul>
-          <ul class="list-news">
-            <li> <img src="../../../static/img/thumbnail-3.jpg" alt="" class="img-polaroid">
-              <div class="text">
-                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-            </li>
+            {% for article in last_news %}
+              {% if article.image %}
+                <li>
+                  <img src="../../../static/notice-data/{{ article.articleID }}_{{ article.image }}" alt="" class="my-thumb-1">
+                  <div id="main_div" class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
+                    {{ article.content }}</div>
+                </li>
+              {% else %}
+                <li>
+                  <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
+                  <div id="main_div" class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
+                    {{ article.content }}</div>
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </div>
 
         <!-- widget category -->
         <div class="widget widget_category">
-          <h4 class="title"><span>Category</span></h4>
+          <h4 class="title"><span>카테고리</span></h4>
           <ul>
             <li><a href="#"><i class="icon-folder-close-alt"></i>Recommendation</a></li>
             <li><a href="#"><i class="icon-folder-close-alt"></i>Hotel and Resorts</a></li>
@@ -135,7 +156,7 @@
         <!-- widget text -->
         <div class="widget widget-text">
           <h4 class="title"><span>Text Widget</span></h4>
-          <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </div>
+          <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </div>
         </div>
 
       </div>
@@ -226,26 +247,28 @@
     var i;
     var max_page = {{ max_page }};
     if(page_block==0)
-        $('ul#page-list').append('<li><a href="/news?page=' + 1 + '">prev</a></li>');
+      $('ul#page-list').append('<li><a href="/news?page=' + 1 + '">prev</a></li>');
     else
-        $('ul#page-list').append('<li><a href="/news?page='+page_block+'">prev</a></li>');
+      $('ul#page-list').append('<li><a href="/news?page='+page_block+'">prev</a></li>');
     for(i=1;i<=5;i++) {
-        if(page_block + i > max_page) break;
-        var li = document.createElement("li");
-        if (i + page_block == page_no) {
-          $('ul#page-list').append('<li><a class="active" href="/news?page='+(i+page_block)+'">'+(page_block+i)+'</a></li>');
-        }
-        else {
-          $('ul#page-list').append('<li><a href="/news?page='+(i+page_block)+'">'+(page_block+i)+'</a></li>');
-        }
+      if(page_block + i > max_page) break;
+      var li = document.createElement("li");
+      if (i + page_block == page_no) {
+        $('ul#page-list').append('<li><a class="active" href="/news?page='+(i+page_block)+'">'+(page_block+i)+'</a></li>');
+      }
+      else {
+        $('ul#page-list').append('<li><a href="/news?page='+(i+page_block)+'">'+(page_block+i)+'</a></li>');
+      }
     }
     if(page_block+6 <= max_page)
-        $('ul#page-list').append('<li><a href="/news?page='+(page_block + 6)+'">Next</a></li>');
+      $('ul#page-list').append('<li><a href="/news?page='+(page_block + 6)+'">Next</a></li>');
     else
-        $('ul#page-list').append('<li><a href="/news?page='+max_page+'">Next</a></li>');
+      $('ul#page-list').append('<li><a href="/news?page='+max_page+'">Next</a></li>');
+  });
+  $(document).ready(function() {
+    $( 'li#my-thumb-1' ).nailthumb();
   });
 </script>
 
 </body>
 </html>
-

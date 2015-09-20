@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-01 05:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/Sunshine/html/i18n.html:10
+msgid "A string to be translated"
+msgstr "한글로 말이죠"
+
+#: templates/Sunshine/html/partials/header.html:12
+msgid "메인"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:15
+msgid "객실목록"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:16
+msgid "객실 상세설명"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:21
+msgid "연회목록"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:22
+msgid "연회 상세설명"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:27
+msgid "웨딩 목록"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:28
+msgid "웨딩 상세설명"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:34
+msgid "객실 예약"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:35
+msgid "연회 예약"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:36
+msgid "레스토랑 예약"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:41
+msgid "공지사항"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:46
+msgid "갤러리"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:47
+msgid "오시는 길"
+msgstr ""
+
+#: templates/Sunshine/html/partials/header.html:48
+msgid "language"
+msgstr "English"
+
+#: work/forms.py:63
+msgid "투숙인원을 선택해주세요"
+msgstr ""
+
+#~ msgid "English"
+#~ msgstr "영엉여엉"
+
+#~ msgid "notice"
+#~ msgstr "공지사항"
