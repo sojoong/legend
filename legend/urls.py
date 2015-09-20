@@ -27,4 +27,5 @@ urlpatterns = patterns('',
 
     url(r'^room-reservation-ok', 'legend.views.room_reservation_ok', name='room-reservation-ok'),
 
+    url(r'^change_language/', 'legend.views.change_language'),
 )

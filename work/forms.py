@@ -11,6 +11,10 @@ from work.models import RoomReservation
 from work.models import BanquetReservation
 from work.models import RestaurantReservation
 
+#internationalization
+from django.utils.translation import ugettext_lazy as _
+
+
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -56,7 +60,7 @@ class RoomReservationForm(forms.Form):
 
 
         if numberOfPeople == '-1':
-            msg = "투숙인원을 선택해주세요"
+            msg = _("투숙인원을 선택해주세요")
             self.add_error('numberOfPeople', msg)
 
         if payment == '-1':

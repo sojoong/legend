@@ -1,4 +1,6 @@
 # forms
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
 from work.forms import RoomReservationForm
 from work.forms import BanquetReservationForm
 from work.forms import RestaurantReservationForm
@@ -13,16 +15,24 @@ from work.models import Room
 from work.models import Hall
 from django.templatetags.static import static
 
+#internationalization
+from django.utils.translation import ugettext as _, activate
+from django.utils.translation import ugettext
+
 
 from django.shortcuts import render, redirect, render_to_response
 from work.models import Article
 
-def index(request):
-    rooms = Room.objects.all()
 
+def index(request):
+    pre_function(request)
+
+    rooms = Room.objects.all()
     return render(request, 'Sunshine/html/index.html', {'rooms': rooms})
 
 def booking(request):
+    pre_function(request)
+
     if request.method == 'POST':
         form = RoomReservationForm(request.POST, auto_id=True)
 
@@ -65,6 +75,8 @@ def booking(request):
 
 
 def banquet_reservation(request):
+    pre_function(request)
+
     if request.method == 'POST':
         form = BanquetReservationForm(request.POST, auto_id=True)
 
@@ -97,6 +109,8 @@ def banquet_reservation(request):
     return render(request, 'Sunshine/html/banquet-reservation.html', {'reservation_form': form})
 
 def restaurant_reservation(request):
+    pre_function(request)
+
     if request.method == 'POST':
         form = RestaurantReservationForm(request.POST, auto_id=True)
 
@@ -110,15 +124,15 @@ def restaurant_reservation(request):
             request = form.cleaned_data['request']
 
             reservation = RestaurantReservation(name=name, phone=phone, email=email,
-                                             reservationDate=reservationDate, reservationTime=reservationTime,
-                                             numberOfPeople=numberOfPeople, request=request)
+                                                reservationDate=reservationDate, reservationTime=reservationTime,
+                                                numberOfPeople=numberOfPeople, request=request)
 
             reservation.save()
 
             return render_to_response('Sunshine/html/restaurant-reservation-ok.html', {'reservation_form': reservation})
 
         return render(request, 'Sunshine/html/restaurant-reservation.html', {'reservation_form': form,
-                                                                          'validation': 1})
+                                                                             'validation': 1})
 
     else:
         form = RestaurantReservationForm(auto_id=True)
@@ -126,15 +140,23 @@ def restaurant_reservation(request):
     return render(request, 'Sunshine/html/restaurant-reservation.html', {'reservation_form': form})
 
 def contact(request):
+    pre_function(request)
+
     return render(request, 'Sunshine/html/contact.html')
 
 def fullwidth(request):
+    pre_function(request)
+
     return render(request, 'Sunshine/html/fullwidth.html')
 
 def gallery(request):
+    pre_function(request)
+
     return render(request, 'Sunshine/html/gallery.html')
 
 def news(request):
+    pre_function(request)
+
     articles = Article.objects.order_by('date').reverse()
     if request.method == 'GET':
         page = int(request.GET.get("page",1))
@@ -157,6 +179,8 @@ def news(request):
     return render(request, 'Sunshine/html/404.html')
 
 def write(request):
+    pre_function(request)
+
     if request.method == 'POST':
         title = request.POST["title"]
         content = request.POST["content"]
@@ -177,21 +201,47 @@ def write(request):
     return render(request, 'Sunshine/html/news_write.html')
 
 def room_details(request):
+    pre_function(request)
+
     return render(request, 'Sunshine/html/room-details.html')
 
 def room_list(request):
+    pre_function(request)
 
     return render(request, 'Sunshine/html/room-list.html')
 
 def room_reservation_ok(request):
+    pre_function(request)
+
     return render(request, 'Sunshine/html/room-reservation-ok.html')
 
 def single_news(request):
+    pre_function(request)
+
     if request.method == 'GET':
-        url = static('notice-data/test.m3u8')
-        print url
+        # url = static('notice-data/test.m3u8')
+        # print url
         articleID = request.GET.get("articleID",None)
         if articleID != None:
             article = Article.objects.filter(articleID=articleID).first()
             return render(request, 'Sunshine/html/single-news.html', {'article':article})
     return render(request, 'Sunshine/html/404.html')
+
+
+def change_language(request):
+
+    if (not 'django_language' in request.session) or request.session['django_language'] == 'ko':
+        request.session['django_language'] = 'en'
+        activate('en')
+    else:
+        request.session['django_language'] = 'ko'
+        activate('ko')
+
+    return HttpResponseRedirect('/')
+    #return render_to_response('Sunshine/html/index.html', {})
+
+def pre_function(request):
+    if (not 'django_language' in request.session) or request.session['django_language'] == 'ko':
+        activate('ko')
+    else:
+        activate('en')
