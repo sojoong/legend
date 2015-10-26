@@ -191,7 +191,7 @@ box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.1);
 /*-------------------------------------------------- */
 .room-features{ margin:10px 0; padding:0; list-style:none;}
 .room-features li{line-height:1.6em;}
-.room-features li i{margin-right:15px; color:#6a4a3d;}
+.room-features li i{margin-right:15px; color:#2D4686;}
 
 .list-features{margin-bottom:40px;}
 
@@ -224,10 +224,28 @@ box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.1);
 	text-decoration:none;
 }
 .btn-book:hover{
-	background:#333;
+	background:#2D4686;
 	color:#fff;
 	text-decoration:none;
 }
+.btn-book:visited{
+	background:#2D4686;
+	color:#fff;
+	text-decoration:none;
+}
+
+.btn-book:active{
+	background:#2D4686;
+	color:#fff;
+	text-decoration:none;
+}
+
+.btn-book:link{
+	background:#2D4686;
+	color:#fff;
+	text-decoration:none;
+}
+
 .price{
 	font-weight:600;
 	font-size:24px;
@@ -390,9 +408,9 @@ footer h3{font-size:20px;}
 /* subfooter
 /*-------------------------------------------------- */
 .subfooter{
-	margin:40px 0 -20px 0;
+	margin:5px 0 -20px 0;
 	background:#39508A;
-	padding:20px 0 20px 0;
+	padding:5px 0 5px 0;
 }
 .subfooter ul{
 	margin:0;
@@ -688,7 +706,7 @@ blockquote span{
 #flickr-photo-stream a:hover img {border:solid 3px #96C277;}
 
 #call-to-action{
-	background:url(../img/bg-blur-2.jpg) bottom center;
+	background:url(../img/common/blur.jpg) bottom center;
 	padding:40px 0 40px 0;
 }
 .call-to-action{
