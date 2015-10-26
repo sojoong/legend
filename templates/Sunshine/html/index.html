@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load i18n %}
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -44,20 +46,17 @@
 <!-- header close -->
 
 <!-- slider -->
-<div id="slider">
+<div class="slider-new">
   <div class="callbacks_container">
     <ul class="rslides pic_slider">
       <li>
-        <img src="../../../static/img/slider-home/pic1.png" alt="">
-        <div class="slider-info">
-          <h1>Welcome to Legend Hotel and Resorts</h1>
-        </div>
+        <img src="../../../static/img/index/slider1.jpg" alt="">
       </li>
       <li>
-        <img src="../../../static/img/slider-home/pic2.png" alt="">
-        <div class="slider-info">
-          <h1>It's our way to make you feel more than home</h1>
-        </div>
+        <img src="../../../static/img/index/slider2.jpg" alt="">
+      </li>
+      <li>
+        <img src="../../../static/img/index/slider3.jpg" alt="">
       </li>
     </ul>
   </div>
@@ -112,27 +111,26 @@
 
     <div class="row">
       <div class="text-center">
-        <h2>Favorite Rooms</h2>
-        Find your favorite room, feel more than home<br><br>
+        <h2 style="font-weight: 500;">{% trans "추천 객실" %}</h2>
+        {% trans "편안하고 안락한 객실이 준비되어 있습니다" %}<br><br>
       </div>
 
       <!-- room -->
       <div class="room span4">
         <div class="btn-book-container">
-          <a href="#" class="btn-book">Book Now</a>
+          <a href="#" class="btn-book">지금 바로 예약하기</a>
         </div>
-        <img data-original="img/room-1.jpg" src="../../../static/img/pic-blank-1.gif" class="img-polaroid" alt="">
-        <h4>Deluxe Room</h4>
+        <img data-original="img/room-1.jpg" src="../../../static/img/room/suite1.jpg" class="img-polaroid" alt="">
+        <h4>{% trans "스위트 (양실)" %}</h4>
         <div class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {% trans "고급스러운 실내장식과 여유로운 공간구성을 통하여 고객님이 최대한 여유롭고 편안히 쉴 수 있는 공간으로, 고급스러움이 고객님의 품격을 높혀드립니다." %}
                 	</div>
         <div class="row">
           <ul class="room-features">
-            <li class="span2"><i class="icon-check-sign"></i>Kingsize Bed</li>
-            <li class="span2"><i class="icon-check-sign"></i>Mountain View</li>
-            <li class="span2"><i class="icon-check-sign"></i>Hotspot and TV Cable</li>
-            <li class="span2"><i class="icon-check-sign"></i>Free Lunch and Dinner</li>
-
+            <li class="span2"><i class="icon-check-sign"></i>킹사이즈 베드</li>
+            <li class="span2"><i class="icon-check-sign"></i>넓은 실내 공간</li>
+            <li class="span2"><i class="icon-check-sign"></i>WIFI와 대형HDTV</li>
+            <li class="span2"><i class="icon-check-sign"></i>천연온천수 제공</li>
           </ul>
         </div>
       </div>
@@ -141,19 +139,19 @@
       <!-- room -->
       <div class="room span4">
         <div class="btn-book-container">
-          <a href="#" class="btn-book">Book Now</a>
+          <a href="#" class="btn-book">지금 바로 예약하기</a>
         </div>
-        <img data-original="img/room-2.jpg" src="../../../static/img/pic-blank-1.gif" class="img-polaroid" alt="">
-        <h4>Elegant Room</h4>
+        <img data-original="img/room-2.jpg" src="../../../static/img/room/korean_suite1.jpg" class="img-polaroid" alt="">
+        <h4>{% trans "스위트 (한실)" %}</h4>
         <div class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {% trans "우리나라 고유의 전통적인 멋과 현대적 장식이 어우러진 넉넉한 공간을 통하여 내집 같은 포근함을 경험할 수 있는 베란다를 갖추고 있는 객실입니다." %}
                 	</div>
         <div class="row">
           <ul class="room-features">
-            <li class="span2"><i class="icon-check-sign"></i>Kingsize Bed</li>
-            <li class="span2"><i class="icon-check-sign"></i>Mountain View</li>
-            <li class="span2"><i class="icon-check-sign"></i>Hotspot and TV Cable</li>
-            <li class="span2"><i class="icon-check-sign"></i>Free Lunch and Dinner</li>
+            <li class="span2"><i class="icon-check-sign"></i>전통적인 온돌</li>
+            <li class="span2"><i class="icon-check-sign"></i>넓은 실내 공간</li>
+            <li class="span2"><i class="icon-check-sign"></i>WIFI와 대형HDTV</li>
+            <li class="span2"><i class="icon-check-sign"></i>천연온천수 제공</li>
           </ul>
         </div>
       </div>
@@ -163,19 +161,20 @@
       <!-- room -->
       <div class="room span4">
         <div class="btn-book-container">
-          <a href="#" class="btn-book">Book Now</a>
+          <a href="#" class="btn-book">지금 바로 예약하기</a>
         </div>
-        <img data-original="img/room-3.jpg" src="../../../static/img/pic-blank-1.gif" class="img-polaroid" alt="">
-        <h4>Luxury Room</h4>
+        <img data-original="img/room-3.jpg" src="../../../static/img/room/double_ondol1.jpg" class="img-polaroid" alt="">
+        <h4>{% trans "디럭스 (더블온돌)" %}</h4>
         <div class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                	</div>
+{% trans " 우리고유의 전통적인 멋과 현대적 장식이 어우러진 내집 같은 포근함을 경험할 수 있는 온돌 객실에 더블침대를 갖추고 있는 객실입니다." %}
+
+        </div>
         <div class="row">
           <ul class="room-features">
-            <li class="span2"><i class="icon-check-sign"></i>Kingsize Bed</li>
-            <li class="span2"><i class="icon-check-sign"></i>Mountain View</li>
-            <li class="span2"><i class="icon-check-sign"></i>Hotspot and TV Cable</li>
-            <li class="span2"><i class="icon-check-sign"></i>Free Lunch and Dinner</li>
+            <li class="span2"><i class="icon-check-sign"></i>더블 베드</li>
+            <li class="span2"><i class="icon-check-sign"></i>넓은 실내 공간</li>
+            <li class="span2"><i class="icon-check-sign"></i>WIFI와 대형HDTV</li>
+            <li class="span2"><i class="icon-check-sign"></i>천연온천수 제공</li>
           </ul>
         </div>
 
@@ -189,8 +188,8 @@
 
     <div class="row gallery">
       <div class="text-center">
-        <h2>Hotel Gallery</h2>
-        Find your favorite room, feel more than home<br><br>
+        <h2 style="font-weight: 500;">{% trans "갤러리" %}</h2>
+        {% trans "레전드 호텔에는 다양한 시설들이 있습니다" %}<br><br>
       </div>
 
       <div class="span2">
@@ -266,74 +265,7 @@
 <!-- content close -->
 
 <!-- footer begin -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="span3">
-        <img src="../../../static/img/logo-2.png" alt="">
-      </div>
-      <div class="span3">
-        <h3>About Us</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div class="span3">
-        <h3>Latest News</h3>
-        <ul class="list-news">
-          <li>
-            <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
-            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-          </li>
-          <li>
-            <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
-            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-          </li>
-        </ul>
-      </div>
-      <div class="span3">
-        <h3>Our Address</h3>
-        <address>
-          80 Gotham Street, Sydney
-          <span><strong>Phone:</strong>(208) 222 4546</span>
-          <span><strong>Fax:</strong>(208) 222 4647</span>
-          <span><strong>Email:</strong><a href="mailto:contact@example.com">contact@example.com</a></span>
-          <span><strong>Web:</strong><a href="#test">http://example.com</a></span>
-        </address>
-
-        <div class="social-icons">
-          <a href="#"><img src="../../../static/img/social-icons/rss.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/facebook.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/twitter.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/gplus.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/youtube.png" alt=""/></a>
-          <a href="#"><img src="../../../static/img/social-icons/vimeo.png" alt=""/></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="subfooter">
-    <div class="container">
-      <div class="row">
-        <div class="span6">
-          &copy; Copyiright 2013 - Sunshine by Aveothemes
-        </div>
-        <div class="span6">
-          <nav>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Room</a></li>
-              <li><a href="#">Booking</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</footer>
+{% include "Sunshine/html/partials/footer.html" %}
 <!-- footer close -->
 
 

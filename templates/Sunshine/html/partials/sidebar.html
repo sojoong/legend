@@ -1,0 +1,30 @@
+<div id="sidebar" class="span4">
+
+  <div class="widget latest_news">
+    <h4 class="title">최근 소식</h4>
+    <ul class="list-news">
+      {% for article in last_news %}
+        {% if article.image %}
+          <li>
+            <img src="../../../static/notice-data/{{ article.articleID }}_{{ article.image }}" alt="" class="my-thumb-1">
+            <div id="main_div" class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
+              {{ article.content }}</div>
+          </li>
+        {% else %}
+          <li>
+            <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
+            <div id="main_div" class="text"><h5><a href="/single-news?articleID={{ article.articleID }}">{{ article.title }}</a></h5>
+              {{ article.content }}</div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- widget text -->
+  <div class="widget widget-text">
+    <h4 class="title"><span>Text Widget</span></h4>
+    <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </div>
+  </div>
+
+</div>
