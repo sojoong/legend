@@ -1,199 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Sunshine - Responsive Hotel Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-    <meta name="author" content="">
-    
-    <!-- LOAD CSS FILES -->
-    <link href="../../../static/css/main.css" rel="stylesheet" type="text/css">
-    
-    <!-- LOAD JS FILES -->
-   	<script src="../../../static/js/jquery.min.js"></script>
-    <script src="../../../static/js/bootstrap.min.js"></script>
-    <script src="../../../static/js/jquery.isotope.min.js"></script>
-    <script src="../../../static/js/jquery.prettyPhoto.js"></script>
-     <script src="../../../static/js/easing.js"></script>
-    <script src="../../../static/js/jquery.lazyload.js"></script>
-    <script src="../../../static/js/jquery.ui.totop.js"></script>
-	<script src="../../../static/js/selectnav.js"></script>
-    <script src="../../../static/js/ender.js"></script>
-    <script src="../../../static/js/custom.js"></script>
-    <script src="../../../static/js/responsiveslides.min.js"></script>
-	<script src="../../../static/js/contact.js"></script>
-    
+  <meta charset="utf-8">
+  <title>Sunshine - Responsive Hotel Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- LOAD CSS FILES -->
+  <link href="../../../static/css/main.css" rel="stylesheet" type="text/css">
+
+  <!-- LOAD JS FILES -->
+  <script src="../../../static/js/jquery.min.js"></script>
+  <script src="../../../static/js/bootstrap.min.js"></script>
+  <script src="../../../static/js/jquery.isotope.min.js"></script>
+  <script src="../../../static/js/jquery.prettyPhoto.js"></script>
+  <script src="../../../static/js/easing.js"></script>
+  <script src="../../../static/js/jquery.lazyload.js"></script>
+  <script src="../../../static/js/jquery.ui.totop.js"></script>
+  <script src="../../../static/js/selectnav.js"></script>
+  <script src="../../../static/js/ender.js"></script>
+  <script src="../../../static/js/custom.js"></script>
+  <script src="../../../static/js/responsiveslides.min.js"></script>
+  <script src="../../../static/js/contact.js"></script>
+
 </head>
 
 <body>
-	<!-- header begin -->
-	<header>
-        {% include "Sunshine/html/partials/header.html" %}
-    </header>
-	<!-- header close -->
-    
-    <!-- subheader begin -->
-	<div id="subheader">
-    	<div class="container">
-    	  <div class="row">
-          	<div class="span12">
-            	<h1>Contact Us</h1>
-                <span>This is custom slogan for each page.</span>
-            </div>
-          </div>
-    	</div>
-    </div>
-	<!-- subheader close -->  
-        
-   <div id="map-container">
-        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=대한민국+대전광역시+유성구+레전드호텔&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
-   </div>
-    
-	<!-- content begin -->
-    <div id="content">
-    	<div class="container">
-        	<div class="row">
-            	<div class="span8">
-                	<h4>Get in touch with us now!</h4>
-Feel free to contact us by contact to get more information.<br/><br/>
-                	<div class="contact_form_holder">
-              <form id="contact" class="row" name="form1" method="post" action="">
-              
-       			<div class="span4">
-                <label>Name</label>
-           		<input type="text" class="full" name="name" id="name"/>
-           		</div>
-                
-                <div class="span4">
-                <label>Email <span class="req">*</span></label>
-           		<input type="text" class="full" name="email" id="email"/>
-                <div id="error_email" class="error">Please check your email</div> 
-				</div>
-				
-                <div class="span8">
-                <label>Message <span class="req">*</span></label>
-                <textarea cols="10" rows="10" name="message" id="message" class="full"></textarea>
-                <div id="error_message" class="error">Please check your message</div>
-                <div id="mail_success" class="success"> Thank you. Your message has been sent.</div>
-<div id="mail_failed" class="error">Error, email not sent</div>
+<!-- header begin -->
+<header>
+  {% include "Sunshine/html/partials/header.html" %}
+</header>
+<!-- header close -->
 
-<p id="btnsubmit"><input type="submit" id="send" value="Send" class="btn btn-large"/></p>               
-                </div>
-                
-                    
-              </form>
-            </div>
-            
-                </div> 
-                    
-              <div id="sidebar" class="span4">
-              		
-<div class="widget latest_news">
-                    	<h4 class="title">Latest News</h4>
-                    	<ul class="list-news"> 
-                            <li>
-                                <img src="../../../static/img/thumbnail-1.jpg" alt="" class="img-polaroid">
-                                <div class="text"><h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                              Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-                            </li>
-                            <li> <img src="../../../static/img/thumbnail-2.jpg" alt="" class="img-polaroid">
-                              <div class="text">
-                                <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                              Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-                            </li></ul>
-                    	<ul class="list-news">
-                    	  <li> <img src="../../../static/img/thumbnail-3.jpg" alt="" class="img-polaroid">
-                    	    <div class="text">
-                    	      <h5><a href="../../../static/img/#">Lorem ipsum dolor sit amet</a></h5>
-                    	      Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
-                  	    </li>
-    					</ul>
-                    </div>
-              
-              		 <!-- widget category --><!-- widget tags --><!-- widget text -->
-       	  <div class="widget widget-text">
-                	<h4 class="title"><span>Text Widget</span></h4>
-                	<div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.                </div>
-       	  </div>
-              </div>
-        	</div>
-</div>
-        </div>
+<!-- subheader begin -->
+<div id="subheader">
+  <div class="container">
+    <div class="row">
+      <div class="span12 slogan">
+        <h1>Contact Us</h1>
+        <span>This is custom slogan for each page.</span>
+      </div>
     </div>
-	<!-- content close -->
-    
+  </div>
+</div>
+<!-- subheader close -->
+
+<div id="map-container">
+  <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=대한민국+대전광역시+유성구+레전드호텔&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+</div>
+
+<!-- content begin -->
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <h4>Get in touch with us now!</h4>
+        Feel free to contact us by contact to get more information.<br/><br/>
+        <div class="contact_form_holder">
+          <form id="contact" class="row" name="form1" method="post" action="">
+
+            <div class="span4">
+              <label>Name</label>
+              <input type="text" class="full" name="name" id="name"/>
+            </div>
+
+            <div class="span4">
+              <label>Email <span class="req">*</span></label>
+              <input type="text" class="full" name="email" id="email"/>
+              <div id="error_email" class="error">Please check your email</div>
+            </div>
+
+            <div class="span8">
+              <label>Message <span class="req">*</span></label>
+              <textarea cols="10" rows="10" name="message" id="message" class="full"></textarea>
+              <div id="error_message" class="error">Please check your message</div>
+              <div id="mail_success" class="success"> Thank you. Your message has been sent.</div>
+              <div id="mail_failed" class="error">Error, email not sent</div>
+
+              <p id="btnsubmit"><input type="submit" id="send" value="Send" class="btn btn-large"/></p>
+            </div>
+
+
+          </form>
+        </div>
+
+      </div>
+
+      {% include "Sunshine/html/partials/sidebar.html" %}
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- content close -->
+
 <!-- footer begin -->
-	<footer>
-  		<div class="container">
-   	  		<div class="row">
-                <div class="span3">
-                	<img src="../../../static/img/logo-2.png" alt="">
-                </div> 
-            	<div class="span3">
-                	<h3>About Us</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </div>                                
- 				<div class="span3">
-                    <h3>Latest News</h3>
-                    <ul class="list-news"> 
-                        <li>
-                            <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-                        </li>
-                        <li>
-                            <img src="../../../static/img/thumbnail-1.jpg" alt=""/>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-                        </li>
-                    </ul>                
-               </div>
-               <div class="span3">
-                	<h3>Our Address</h3>
-                    	<address>
-                                80 Gotham Street, Sydney
-                        <span><strong>Phone:</strong>(208) 222 4546</span>
-                        <span><strong>Fax:</strong>(208) 222 4647</span>
-                        <span><strong>Email:</strong><a href="mailto:contact@example.com">contact@example.com</a></span>
-                        <span><strong>Web:</strong><a href="#test">http://example.com</a></span>
-                       </address>
-                       
-                       <div class="social-icons">
-                        	<a href="#"><img src="../../../static/img/social-icons/rss.png" alt=""/></a>
-                        	<a href="#"><img src="../../../static/img/social-icons/facebook.png" alt=""/></a>
-                        	<a href="#"><img src="../../../static/img/social-icons/twitter.png" alt=""/></a>
-                        	<a href="#"><img src="../../../static/img/social-icons/gplus.png" alt=""/></a>
-                        	<a href="#"><img src="../../../static/img/social-icons/youtube.png" alt=""/></a>
-                        	<a href="#"><img src="../../../static/img/social-icons/vimeo.png" alt=""/></a>
-                        </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="subfooter">
-        	<div class="container">
-                <div class="row">
-                	<div class="span6">
-                    	&copy; Copyiright 2013 - Sunshine by Aveothemes
-                    </div>
-                    <div class="span6">
-                    	<nav>
-                          <ul>
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#">Room</a></li>
-                              <li><a href="#">Booking</a></li>
-                              <li><a href="#">News</a></li>
-                              <li><a href="#">Gallery</a></li>
-                              <li><a href="#">Contact</a></li>
-                          </ul>
-                        </nav>
-                  </div>
-                </div>
-            </div>
-        </div>
-        
-   	</footer>
-	<!-- footer close -->
-   
+{% include "Sunshine/html/partials/footer.html" %}
+<!-- footer close -->
+
 </body>
 </html>
 

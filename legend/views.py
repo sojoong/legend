@@ -140,7 +140,9 @@ def restaurant_reservation(request):
     return render(request, 'Sunshine/html/restaurant-reservation.html', {'reservation_form': form})
 
 def contact(request):
-    pre_function(request)
+    if request.method == 'GET':
+        last_news = get_last_news()
+        return render(request, 'Sunshine/html/contact.html', {'last_news':last_news})
 
     return render(request, 'Sunshine/html/contact.html')
 
@@ -177,6 +179,18 @@ def news(request):
         return render(request, 'Sunshine/html/news.html',
                       {'articles': cur_page_articles,'page_no': page,'max_page':max_page,'last_news':last_news})
     return render(request, 'Sunshine/html/404.html')
+
+def get_last_news():
+    articles = Article.objects.order_by('date').reverse()
+    count=0
+    last_news = []
+    for article in articles:
+        count+=1
+        if(count < 4):
+            last_news.append(article)
+        else:
+            break
+    return last_news
 
 def write(request):
     pre_function(request)
@@ -224,7 +238,8 @@ def single_news(request):
         articleID = request.GET.get("articleID",None)
         if articleID != None:
             article = Article.objects.filter(articleID=articleID).first()
-            return render(request, 'Sunshine/html/single-news.html', {'article':article})
+            last_news = get_last_news()
+            return render(request, 'Sunshine/html/single-news.html', {'article':article,'last_news':last_news})
     return render(request, 'Sunshine/html/404.html')
 
 
